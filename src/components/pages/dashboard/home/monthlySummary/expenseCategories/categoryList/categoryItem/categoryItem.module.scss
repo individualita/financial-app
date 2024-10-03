@@ -1,0 +1,17 @@
+
+.item {
+    @apply flex items-center gap-3;
+}
+
+.percentage {
+    @apply flex justify-center items-center p-1 w-10 rounded-lg bg-gray-100 text-xs;
+}
+
+.title {
+    @apply text-xs font-light text-gray-500;
+}
+
+.amount {
+    @apply font-semibold text-sm;
+    color: var(--color-accent-red); /* Красный для расходов */
+}

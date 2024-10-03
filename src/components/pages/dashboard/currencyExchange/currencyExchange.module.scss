@@ -1,0 +1,14 @@
+.currency {
+    @apply flex flex-col justify-between grow;
+}
+
+.updateButton {
+    @apply ml-auto block;
+}
+.update {
+    @apply text-center font-medium;
+
+    & > span {
+        @apply text-xs text-gray-400;
+    }
+}

@@ -1,0 +1,28 @@
+
+.diagram {
+    @apply bg-white rounded-xl p-2 flex-1;
+}
+
+.title {
+    @apply font-semibold text-sm;
+}
+
+.month {
+    @apply text-xs text-gray-600;
+}
+
+.value {
+    @apply text-xs;
+}
+
+.income {
+    color: var(--color-accent-green);
+}
+
+.expenses {
+    color: var(--color-accent-red);
+}
+
+.summary {
+    @apply mt-2;
+}

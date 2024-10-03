@@ -1,0 +1,28 @@
+.item {
+    @apply flex justify-between items-center p-4 shadow rounded-lg bg-white;
+}
+
+.flag {
+    @apply w-12;
+    aspect-ratio: 1/1;
+}
+
+.details {
+    @apply flex flex-col gap-1;
+}
+
+.code {
+    @apply font-medium;
+}
+
+.subrate {
+    @apply text-gray-400 text-xs;
+}
+
+.rate {
+    @apply text-lg font-semibold;
+}
+
+.info {
+    @apply flex items-center gap-3;
+}

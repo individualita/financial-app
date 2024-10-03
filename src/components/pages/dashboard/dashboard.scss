@@ -1,0 +1,7 @@
+.dashboard {
+    @apply flex flex-col grow pt-9;
+
+    &> section {
+        @apply pt-7 pb-24;
+    }
+}

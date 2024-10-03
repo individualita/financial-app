@@ -1,0 +1,15 @@
+.error {
+    @apply text-center;
+}
+.type {
+    @apply text-7xl;
+    color: var(--color-accent-red);
+}
+
+.message {
+    @apply text-3xl text-gray-500 my-8;
+}
+
+.img {
+    @apply w-2/3 my-9 mx-auto;
+}

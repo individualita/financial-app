@@ -1,0 +1,9 @@
+
+.text {
+    @apply text-gray-600 text-xs font-normal;
+}
+
+.amount {
+    @apply text-3xl font-semibold flex flex-col;
+    color: var(--color-heading);
+}

@@ -1,0 +1,38 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--text-color);
+	font-family: var(--font-main);
+	font-size: 14px;
+	text-wrap: balance;
+	@include small-mobile {
+		font-size: 12px;
+	}
+}
+
+
+img {
+	display: block;
+	object-fit: cover;
+}
+
+a {
+	color: var(--link-color);
+}
+
+code {
+	background-color: #e9f1f6;
+	padding: 0.2rem;
+	border-radius: 4px;
+}
+
+pre.code {
+	overflow-x: auto;
+	background-color: #e9f1f6;
+	padding: 1rem;
+	border-radius: 4px;
+}

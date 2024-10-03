@@ -1,0 +1,50 @@
+
+.addExpenseButton {
+    position: absolute;
+    top: -15px;
+    display: flex;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background-color: gray;
+    opacity: 0.4;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Легкая тень для кнопки
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50%;
+        color: #fff;
+        height: 1px;
+        width: 25px;
+        border: 1px solid #fff;
+    }
+
+    &::after {
+        rotate: 90deg;
+    }
+
+    /* for PC 
+    &:hover {
+        transform: scale(1.1); // Увеличение при наведении
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); // Увеличение тени при наведении
+    }
+    */
+
+    &:active {
+        transform: scale(0.95); 
+    }
+
+}
+
+.active {
+    background-color: var(--color-accent-red);
+    opacity: 1;
+}
+

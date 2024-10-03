@@ -1,0 +1,11 @@
+
+@import './reset';
+@import './vars';
+@import './mixins';
+@import './typography';
+@import './base';
+
+// Импорт Tailwind CSS в конце
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

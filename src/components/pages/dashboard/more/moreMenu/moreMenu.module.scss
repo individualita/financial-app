@@ -1,0 +1,12 @@
+.list {
+    @apply flex flex-col gap-4 text-center;
+}
+
+.item {
+    @apply py-2 shadow rounded-lg bg-white;
+}
+
+.link {
+    @apply text-xs w-full block ;
+    
+}

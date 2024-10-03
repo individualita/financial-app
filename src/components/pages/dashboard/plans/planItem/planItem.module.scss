@@ -1,0 +1,19 @@
+.card {
+    box-shadow: 0 1px 1px rgb(138, 137, 137);
+    word-wrap: break-word; /* Позволяет тексту переноситься на новую строку */
+    @apply relative p-3 rounded-md;
+}
+
+.title {
+    @apply text-sm font-bold;
+}
+
+
+
+.content {
+    @apply mt-3 text-xs;
+}
+
+.deleteButton {
+    @apply absolute p-1 top-0 right-0;
+}

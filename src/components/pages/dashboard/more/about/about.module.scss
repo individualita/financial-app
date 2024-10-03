@@ -1,0 +1,19 @@
+.about {
+    @apply flex flex-col justify-center gap-3;
+    li {
+        list-style: circle;
+        
+    }
+
+    ul {
+        margin-left: 30px;
+    }
+}
+
+.title {
+    color: var(--color-primary-light);
+}
+.link {
+   
+    color: var(--color-accent-red);
+}

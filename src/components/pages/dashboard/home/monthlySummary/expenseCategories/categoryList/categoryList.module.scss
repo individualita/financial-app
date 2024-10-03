@@ -1,0 +1,7 @@
+.list {
+    @apply flex flex-col items-start gap-2 mt-4;
+}
+
+.toggleButton {
+    @apply text-xs p-1;
+}

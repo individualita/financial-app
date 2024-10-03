@@ -1,0 +1,16 @@
+
+.welcome {
+    @apply h-full pb-8 flex justify-between items-center flex-col text-center gap-9;
+
+}
+
+.img {
+    @apply mt-10 max-w-xs aspect-square;
+}
+
+.footer {
+    @apply text-xs;
+}
+.link {
+    color: var(--color-primary);
+}
