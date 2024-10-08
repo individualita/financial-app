@@ -9,7 +9,7 @@ import transactionsData from "../../../data/transactionsData";
 import Heading from "../../common/headings/Heading";
 import TimeDisplay from "../../layout/timedisplay/TimeDisplay";
 import Home from "./home/Home";
-import CurrencyExchange from "./currencyExchange/CurrencyExchange";
+import Currency from "./currency/Currency";
 import Plans from "./plans/Plans";
 import Menu from "../../layout/menu/Menu";
 import TransactionModal from "../../common/modal/TransactionModal";
@@ -94,7 +94,7 @@ const Dashboard = () => {
             <Outlet />
             <Routes>
                 <Route path="home" element={<Home data={transactions} onDeleteTransaction={onDeleteTransaction} />}/>
-                <Route path="currency" element={<CurrencyExchange />} />
+                <Route path="currency" element={<Currency />} />
                 <Route path="plans" element={<Plans plans={plans} addNewPlan={addNewPlan} onDeleteNewPlan={onDeleteNewPlan} />}/>
                 <Route path="more/*" element={<More />} />
                 {/* Перенаправление неизвестных путей на /home */}

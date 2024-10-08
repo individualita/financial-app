@@ -10,9 +10,9 @@ import Spinner from '../../../common/spinner/Spinner'
 import CurrencyList from './currencyList/CurrencyList';
 
 //styles
-import styles from './currencyExchange.module.scss';
+import styles from './currency.module.scss';
 
-const CurrencyExchange = () => {
+const Currency = () => {
     //states
     const [currencyData, setCurrencyData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -84,4 +84,4 @@ const CurrencyExchange = () => {
 }
 
 
-export default CurrencyExchange;
+export default Currency;
