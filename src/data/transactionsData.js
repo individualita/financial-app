@@ -5,7 +5,7 @@ const transactionsData = [
       category: 'Rent',
       date: '2024-10-13',
       description: 'Initial expense :)',
-      amount: -200.00,
+      amount: -2000.00,
       amountType: 'expense',
     },
 
@@ -15,7 +15,7 @@ const transactionsData = [
       category: 'Clothes',
       date: '2024-10-08',
       description: 'Initial expense :)',
-      amount: -45.00,
+      amount: -120.00,
       amountType: 'expense',
     },
 
@@ -25,7 +25,7 @@ const transactionsData = [
       category: 'Gifts',
       date: '2024-10-01',
       description: 'Initial expense :)',
-      amount: -38.00,
+      amount: -300.00,
       amountType: 'expense',
     },
 
@@ -35,7 +35,7 @@ const transactionsData = [
       category: 'JunkFood',
       date: '2024-08-03',
       description: 'Initial expense :)',
-      amount: -5.00,
+      amount: -50.00,
       amountType: 'expense',
     },
 
@@ -45,7 +45,7 @@ const transactionsData = [
       category: 'Salary',
       date: '2024-10-04',
       description: 'Initial income :)',
-      amount: 1000.00,
+      amount: 10000.00,
       amountType: 'income',
     }
     

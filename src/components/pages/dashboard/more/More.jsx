@@ -11,9 +11,7 @@ const More = () => {
     const location = useLocation();
     const currentLocation = location.pathname;
     const currentSection = currentLocation.split('/').pop();
-    //const modern = currentSection[0].toUpperCase() + currentSection.slice(1);
-    //console.log(modern);
-    console.log(currentSection)
+
 
     return (
         <section className="more">

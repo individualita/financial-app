@@ -8,6 +8,10 @@
     @apply mt-10 max-w-xs aspect-square;
 }
 
+.startLink {
+    @apply block w-full;
+}
+
 .footer {
     @apply text-xs;
 }

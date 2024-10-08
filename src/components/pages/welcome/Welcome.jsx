@@ -18,7 +18,7 @@ const Welcome = () => {
                 className="button button-primary button-large"
                 aria-label="Click to start navigating to the Dashboard"
                 >
-                    <Link to="/home" aria-label="Go to home">Click to start </Link>
+                    <Link className={styles.startLink}  to="/home" aria-label="Go to home">Click to start </Link>
             </Button>
             
             
