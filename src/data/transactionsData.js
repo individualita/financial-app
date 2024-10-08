@@ -40,6 +40,26 @@ const transactionsData = [
     },
 
     {
+      _id: 282,
+      icon: '📠',
+      category: 'Bills',
+      date: '2024-10-28',
+      description: 'Initial expense :)',
+      amount: -130.00,
+      amountType: 'expense',
+    },
+
+    {
+      _id: 442,
+      icon: '💻',
+      category: 'Internet',
+      date: '2024-10-26',
+      description: 'Initial expense :)',
+      amount: -72.00,
+      amountType: 'expense',
+    },
+
+    {
       _id: 223,
       icon: '💲',
       category: 'Salary',
