@@ -4,7 +4,6 @@ import MoreMenu from "./moreMenu/MoreMenu";
 import Contact from "./contact/Contact";
 import Notfoundpage from "../../notfoundpage/Notfoundpage";
 
-import styles from './more.module.scss';
 
 const More = () => {
 
