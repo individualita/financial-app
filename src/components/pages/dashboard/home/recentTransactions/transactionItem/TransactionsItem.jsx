@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 //Utility function to format currency based on locale
 import { formatCurrency } from '../../../../../utils/formatCurrency';
 
+import RemoveButton from '../../../../../common/buttons/removeButton/RemoveButton';
+
 import styles from './transactionsItem.module.scss';
 
 const TransactionItem = ({icon, category, date, description, amount, amountType, onDeleteTransaction, _id}) => {
@@ -33,12 +35,14 @@ const TransactionItem = ({icon, category, date, description, amount, amountType,
                 {amountType === 'income' ? `+${formattedAmount} ` : ` ${formattedAmount} `}
             </div>
 
-            <button 
-                onClick={() => onDeleteTransaction(_id)} 
+
+            <RemoveButton
+                onClick={() => onDeleteTransaction(_id)}
                 className={styles.deleteBtn}
                 aria-label={`Delete transaction ${description}`}
-                >x
-            </button>
+                >
+                x
+            </RemoveButton>
         </li>
     )
 }

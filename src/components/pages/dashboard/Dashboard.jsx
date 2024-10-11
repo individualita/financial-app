@@ -22,18 +22,17 @@ import "./dashboard.scss";
 const Dashboard = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    //const [transactions, setTransactions] = useState(transactionsData);
     
     const [transactions, setTransactions] = useState(() => {
         const savedTransactions = localStorage.getItem('transactions');
 
         return savedTransactions? JSON.parse(savedTransactions) : transactionsData;
     });
+    
     const [plans, setPlans] = useState(() => {
         const savedPlans = localStorage.getItem('plans');
         return savedPlans ? JSON.parse(savedPlans) : plansData;
     });
-    //const [plans, setPlans] = useState(plansData);
 
 
     useEffect(() => {

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import RemoveButton from '../../../../common/buttons/removeButton/RemoveButton';
+
 import styles from './planItem.module.scss';
 
 const PlanItem = ({onDeleteNewPlan, _id, title, content, color}) => {
@@ -9,13 +11,14 @@ const PlanItem = ({onDeleteNewPlan, _id, title, content, color}) => {
             <div className={styles.title}>{title}</div>
             <p className={styles.content}>{content}</p>
 
-            <button 
-                className={styles.deleteButton} 
+            <RemoveButton
                 onClick={() => onDeleteNewPlan(_id)}
+                className={styles.deleteButton}
                 aria-label={`Delete plan titled ${title}`}
                 >
                 x
-            </button>
+            </RemoveButton>
+
         </article>
     )
 }
