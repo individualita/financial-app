@@ -163,7 +163,8 @@ const TransactionModal = ({handleCloseModal, addNewTransaction}) => {
                                     className={`${styles.input} ${errors.date? styles.inputError : ''}`}
                                     type="date" 
                                     name="date" 
-                                    id="date"  
+                                    id="date"
+                                    placeholder="dd.mm.year"  
                                 />
                                 {errors.date? <div className={styles.error}>{errors.date}</div> : null}
 

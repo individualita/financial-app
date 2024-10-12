@@ -107,6 +107,9 @@
     background-size: 20px 20px; 
 }
 
+input[type="date"]:invalid {
+    padding: 0.75rem !important; /* padding for empty value */
+}
 //Hide default date icon. Скрываем стандартную иконку
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
