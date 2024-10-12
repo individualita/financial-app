@@ -1,83 +1,5 @@
 
 .modal {
-
-
-
-    &__wrapper {
-        
-    }
-
-    &__content {
-        
-    }
-
-    &__header {
-        
-    }
-
-    &__title {
-        
-    }
-
-    &__close {
-        
-    }
-
-    &__body {
-
-    }
-
-    &__form {
-        &-group {
-            
-            &--amount {
-                
-            }
-            &--type {
-                
-
-            }
-        }
-
-    }
-
-    &__amount {
-        &-display {
-
-        }
-    }
-
-    &__input,
-    &__select {
-        @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3;
-    }
-
-    &__button {
-        @apply flex-1 p-3 rounded-lg  bg-white text-xs border border-gray-100 focus:border-gray-500;
-        &--expense {
-            background-color: var(--color-accent-red);
-        }
-        &--income {
-            background-color: var(--color-accent-green);
-        }
-    
-    }
-
-    &__submit {
-        &-button {
-            @apply mt-7 w-full p-3 text-white rounded-full cursor-pointer bg-gray-800 text-xs;
-            //background-color: var(--color-primary);
-        }
-    }
-
-}
-
-.input-error {
-}
-
-
-
-.modal {
     @apply  fixed top-0 right-0 left-0 z-50 flex flex-col justify-center items-center w-full h-full;
     backdrop-filter: blur(2px);
 }
@@ -88,6 +10,7 @@
 
 .content {
     @apply p-4 w-full max-w-md  bg-white rounded-xl shadow dark:bg-gray-700;
+    background: white !important; // ensure white background for safari browser
 }
 
 .header {
@@ -123,14 +46,18 @@
 
 .input,
 .select {
-    @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3;
+    @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block min-w-full p-3;
 }
+
 
 .inputError {
     border: 1px solid red;
 }
 
-
+//for safari browser
+input[type="date"] {
+    @apply appearance-none bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3; //appearance-none = remove default styles
+}
 .error {
     text-align: center;
     color: red;
