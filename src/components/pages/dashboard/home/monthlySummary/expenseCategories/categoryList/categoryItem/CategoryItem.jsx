@@ -15,7 +15,7 @@ const CategoryItem = ({category, amount, percentage}) => {
             </div>
             <div className="home__category-info">
                 <div className={styles.title}>{category}</div>
-                <div className={styles.amount}>{/*amount.toFixed(2)*/formattedAmount} </div>
+                <div className={`${styles.amount} expense`}>{/*amount.toFixed(2)*/formattedAmount} </div>
             </div>
         </li>
     )

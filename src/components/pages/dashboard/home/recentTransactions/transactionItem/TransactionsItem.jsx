@@ -31,7 +31,7 @@ const TransactionItem = ({icon, category, date, description, amount, amountType,
             </div>
 
             
-            <div className={amountType === 'income' ? styles.income : styles.expense}>
+            <div className={amountType === 'income' ? `${styles.amount} income` : `${styles.amount} expense`}>
                 {amountType === 'income' ? `+${formattedAmount} ` : ` ${formattedAmount} `}
             </div>
 
