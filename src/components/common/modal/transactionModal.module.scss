@@ -94,7 +94,9 @@
 
 .input[type="date"] {
     @apply appearance-none bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3; //appearance-none = remove default styles
-    -webkit-appearance: none; 
+    -webkit-appearance: none !important; 
+    -webkit-padding-start: 0.75rem !important; /* Префикс для Safari */
+    -webkit-padding-end: 0.75rem !important; /* Префикс для Safari */
     position: relative;
     padding: 0.75rem !important;
     background-repeat: no-repeat;
