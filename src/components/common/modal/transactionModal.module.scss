@@ -50,14 +50,14 @@
 }
 
 
+
+
 .inputError {
     border: 1px solid red;
 }
 
-//for safari browser
-input[type="date"] {
-    @apply appearance-none bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3; //appearance-none = remove default styles
-}
+
+
 .error {
     text-align: center;
     color: red;
@@ -79,4 +79,37 @@ input[type="date"] {
 
 .submitButton {
     @apply mt-7 w-full p-3 text-white rounded-full cursor-pointer bg-gray-800 text-xs;
+}
+
+
+/* Lower the styles for Safari browser, as it's displaying incorrectly */
+.input[type="date"] {
+    @apply appearance-none bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3; //appearance-none = remove default styles
+}
+
+//for safari browser
+.select {
+    @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block min-w-full;
+    appearance: none;
+    padding: 0.75rem !important;
+}
+
+//for safari browser
+input[type="date"] {
+    appearance: none; 
+    -webkit-appearance: none; 
+    position: relative;
+    padding: 0.75rem;
+    color: black;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-image: url('../../../assets/icons/calendar.png'); //add calendar icon
+    background-repeat: no-repeat;
+    background-position: right 10px center; 
+    background-size: 20px 20px; 
+}
+
+//Hide default date icon. Скрываем стандартную иконку
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
 }
