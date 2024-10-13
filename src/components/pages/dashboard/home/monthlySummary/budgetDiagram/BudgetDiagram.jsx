@@ -29,8 +29,8 @@ const BudgetDiagram = ({data, totalIncome, totalExpense, month}) => {
             <CustomPieChart data={data} width={150} height={200} innerRadius={40} outerRadius={60} colors={categoryColors}  />
 
             <footer className={styles.summary}>
-                <div className={styles.value}> income: <span className="income">{totalIncome}</span> </div>
-                <div className={styles.value}>expenses: <span className="expense">{totalExpense}</span> </div>
+                <div className={styles.value}> income: <span className="income">{totalIncome.toFixed(1)}</span> </div>
+                <div className={styles.value}>expenses: <span className="expense">{totalExpense.toFixed(1)}</span> </div>
             </footer>
 
         </div>
