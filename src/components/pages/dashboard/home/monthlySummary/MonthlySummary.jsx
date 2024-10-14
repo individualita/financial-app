@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 
 //Import local components for displaying budget diagram and expense categories
 import BudgetDiagram from "./budgetDiagram/BudgetDiagram";
@@ -22,22 +23,27 @@ const MonthlySummary = ({data, monthName, year}) => {
         )
     } 
     
-    //Calculate total income and total expenses for the month
-    const totalExpense = sumAmountByType(data, 'expense');
-    const totalIncome = sumAmountByType(data, 'income');
+    //Calculate and memoize total income and total expenses for the month
+    const totalExpense = useMemo(() => sumAmountByType(data, 'expense'), [data]);
+    const totalIncome = useMemo(() => sumAmountByType(data, 'income'), [data]);
 
-    //Group expenses by category and calculate percentages relative to total income
+    // Memoize grouping of expenses and calculation of percentages
     //Суммирование расходов по категориям и вычисление процентов
-    const expenseByCategory = groupExpensesByCategory(data);
-    const categoriesWithPercentage = calculatePercetageByCategory(expenseByCategory, totalIncome);
+    const categoriesWithPercentage = useMemo(() => {
+        const expenseByCategory = groupExpensesByCategory(data);
+        return calculatePercetageByCategory(expenseByCategory, totalIncome);
+    }, [data, totalIncome]);
+
 
     // Prepare data for the chart, including category names, amounts, and percentages
     // Преобразуем данные в формат, подходящий для диаграммы, используя percentage
-    const dataForChart = categoriesWithPercentage.map(item => ({
-        name: item.category,
-        value: item.amount,
-        percentage: item.percentage
-    }));
+    const dataForChart = useMemo(() => {
+        return categoriesWithPercentage.map(item => ({
+            name: item.category,
+            value: item.amount,
+            percentage: item.percentage
+        }));
+    }, [categoriesWithPercentage]);
 
 
     return (
