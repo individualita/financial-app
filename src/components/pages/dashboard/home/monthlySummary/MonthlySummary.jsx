@@ -37,13 +37,11 @@ const MonthlySummary = ({data, monthName, year}) => {
 
     // Prepare data for the chart, including category names, amounts, and percentages
     // Преобразуем данные в формат, подходящий для диаграммы, используя percentage
-    const dataForChart = useMemo(() => {
-        return categoriesWithPercentage.map(item => ({
-            name: item.category,
-            value: item.amount,
-            percentage: item.percentage
-        }));
-    }, [categoriesWithPercentage]);
+    const dataForChart = categoriesWithPercentage.map(item => ({
+        name: item.category,
+        value: item.amount,
+        percentage: item.percentage
+    }));
 
 
     return (
