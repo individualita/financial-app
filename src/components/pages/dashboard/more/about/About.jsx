@@ -11,7 +11,6 @@ const About = () => {
             <ul>
                 <li>Track your income and expenses.</li>
                 <li>Plan future financial goals.</li>
-                <li>Receive important financial news and tips.</li>
             </ul>
             <p>
                 We strive to make financial management as simple and accessible as possible. All information is presented in a user-friendly interface, and the data is automatically processed for better planning.
