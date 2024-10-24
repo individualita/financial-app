@@ -4,7 +4,7 @@ import { useState } from 'react';
 //import global resources
 import hiImg from './../../../../assets/images/plans/hi.png';
 import planBackgroundColors from '../../../../data/planBackgroundColors';
-import Heading from '../../../common/headings/Heading';
+import Heading from '../../../common/heading/Heading';
 
 //import local components
 import PlanItem from './planItem/PlanItem';

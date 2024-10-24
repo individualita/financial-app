@@ -6,7 +6,7 @@ import plansData from "../../../data/plansData";
 import transactionsData from "../../../data/transactionsData";
 
 //Components
-import Heading from "../../common/headings/Heading";
+import Heading from "../../common/heading/Heading";
 import TimeDisplay from "../../layout/timedisplay/TimeDisplay";
 import Home from "./home/Home";
 import Currency from "./currency/Currency";

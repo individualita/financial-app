@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import ActionButton from '../../../../common/buttons/actionButton/ActionButton';
 
-import Heading from './../../../../common/headings/Heading';
+import Heading from './../../../../common/heading/Heading';
 
 import styles from './homeHeader.module.scss';
 

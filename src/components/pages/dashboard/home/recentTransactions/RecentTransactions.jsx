@@ -7,7 +7,7 @@ import sortTransactionsByDate from "../../../../utils/sortTransactionsByDate";
 // Local component for displaying individual transactions
 import TransactionItem from "./transactionItem/TransactionsItem";
 // Global components
-import Heading from "../../../../common/headings/Heading";
+import Heading from "../../../../common/heading/Heading";
 import ActionButton from "../../../../common/buttons/actionButton/ActionButton";
 
 import styles from "./recentTransactions.module.scss";

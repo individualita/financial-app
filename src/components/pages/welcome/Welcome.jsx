@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import welcomeImg from '../../../assets/images/welcome/girlwithphone.png'
-import Heading from '../../common/headings/Heading';
+import Heading from '../../common/heading/Heading';
 
 import styles from './welcome.module.scss';
 

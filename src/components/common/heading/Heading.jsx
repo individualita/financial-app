@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Heading = ({level = 3, className = '', children, ...props}) => {
 
-    const Tag = `h${level}`;
+    const Tag = level >= 1 && level <= 6 ? `h${level}` : 'h1';
 
     return (
         <Tag className={`title-${level} ${className}`} {...props}>{children}</Tag>

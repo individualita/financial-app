@@ -1,4 +1,4 @@
-import Heading from "../../../../common/headings/Heading";
+import Heading from "../../../../common/heading/Heading";
 
 import styles from './contact.module.scss';
 
