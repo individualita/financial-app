@@ -8,13 +8,13 @@ import transactionsData from "../../../data/transactionsData";
 //Components
 import Heading from "../../common/heading/Heading";
 import TimeDisplay from "../timedisplay/TimeDisplay";
-import Home from '../../pages/home/Home';
-import Currency from '../../pages/currency/Currency';
-import Plans from '../../pages/plans/Plans';
+import Home from '../../../pages/home/Home';
+import Currency from '../../../pages/currency/Currency';
+import Plans from '../../../pages/plans/Plans';
 import Menu from '../menu/Menu';
 import TransactionModal from '../../common/modal/TransactionModal';
-import More from '../../pages/more/More';
-import Notfoundpage from '../../pages/notfoundpage/Notfoundpage';
+import More from '../../../pages/more/More';
+import Notfoundpage from '../../../pages/notfoundpage/Notfoundpage';
 
 //styles
 import "./dashboard.scss";

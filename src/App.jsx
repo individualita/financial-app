@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //components 
 import Container from './components/layout/container/Container';
-import Welcome from './components/pages/welcome/Welcome';
+import Welcome from './pages/welcome/Welcome';
 import Dashboard from './components/layout/dashboard/Dashboard';
-import Notfoundpage from './components/pages/notfoundpage/Notfoundpage';
+import Notfoundpage from './pages/notfoundpage/Notfoundpage';
 
 
 //styles
