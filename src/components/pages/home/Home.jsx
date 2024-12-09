@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 import { useState, useMemo } from 'react';
 
 //components
-import HomeHeader from './homeHeader/HomeHeader';
-import BalanceOverview from './balanceOverview/BalanceOverview';
-import MonthlySummary from './monthlySummary/MonthlySummary';
-import RecentTransactions from './recentTransactions/RecentTransactions';
-import AllBudgets from './allBudgets/AllBudgets';
+import HomeHeader from './components/homeHeader/HomeHeader';
+import BalanceOverview from './components/balanceOverview/BalanceOverview';
+import MonthlySummary from './components/monthlySummary/MonthlySummary';
+import RecentTransactions from './components/recentTransactions/RecentTransactions';
+import AllBudgets from './components/allBudgets/AllBudgets';
 
 //Utility function for grouping transactions by month
-import groupTransactionsByMonth from '../../../utils/groupTransactionsByMonth';
+import groupTransactionsByMonth from '../../utils/groupTransactionsByMonth';
 
 
 const Home = ({data, onDeleteTransaction}) => {

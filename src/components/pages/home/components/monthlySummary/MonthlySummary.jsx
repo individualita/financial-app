@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 
 //Import local components for displaying budget diagram and expense categories
-import BudgetDiagram from "./budgetDiagram/BudgetDiagram";
-import ExpenseCategories from "./expenseCategories/ExpenseCategories";
+import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
+import ExpenseCategories from "../expenseCategories/ExpenseCategories";
 
 //Import utility functions for calculations
 import sumAmountByType from "../../../../utils/sumAmountByType";

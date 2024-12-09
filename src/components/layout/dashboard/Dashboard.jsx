@@ -7,14 +7,14 @@ import transactionsData from "../../../data/transactionsData";
 
 //Components
 import Heading from "../../common/heading/Heading";
-import TimeDisplay from "../../layout/timedisplay/TimeDisplay";
-import Home from "./home/Home";
-import Currency from "./currency/Currency";
-import Plans from "./plans/Plans";
-import Menu from "../../layout/menu/Menu";
-import TransactionModal from "../../common/modal/TransactionModal";
-import More from "./more/More";
-import Notfoundpage from '../notfoundpage/Notfoundpage';
+import TimeDisplay from "../timedisplay/TimeDisplay";
+import Home from '../../pages/home/Home';
+import Currency from '../../pages/currency/Currency';
+import Plans from '../../pages/plans/Plans';
+import Menu from '../menu/Menu';
+import TransactionModal from '../../common/modal/TransactionModal';
+import More from '../../pages/more/More';
+import Notfoundpage from '../../pages/notfoundpage/Notfoundpage';
 
 //styles
 import "./dashboard.scss";

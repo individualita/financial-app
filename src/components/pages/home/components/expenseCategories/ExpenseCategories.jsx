@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 
-import CategoryList from "./categoryList/CategoryList";
+import CategoryList from "../categoryList/CategoryList";
 
-import Heading from "../../../../../common/heading/Heading";
+import Heading from "../../../../common/heading/Heading";
 
 import styles from './expenseCategories.module.scss';
 

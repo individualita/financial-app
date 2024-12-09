@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 //import global resources
-import hiImg from './../../../../assets/images/plans/hi.png';
-import planBackgroundColors from '../../../../data/planBackgroundColors';
-import Heading from '../../../common/heading/Heading';
+import hiImg from '../../../assets/images/plans/hi.png';
+import planBackgroundColors from '../../../data/planBackgroundColors';
+import Heading from '../../common/heading/Heading';
 
 //import local components
-import PlanItem from './planItem/PlanItem';
-import PlansForm from './plansForm/PlansForm';
+import PlanItem from './components/planItem/PlanItem';
+import PlansForm from './components/plansForm/PlansForm';
 
 //import styles for the current component
 import styles from './plans.module.scss';

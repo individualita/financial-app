@@ -2,12 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 //components 
-import Container from '../layout/container/Container';
-import Welcome from '../pages/welcome/Welcome';
-import Dashboard from '../pages/dashboard/Dashboard';
-
-import Notfoundpage from '../pages/notfoundpage/Notfoundpage';
-
+import Container from './components/layout/container/Container';
+import Welcome from './components/pages/welcome/Welcome';
+import Dashboard from './components/layout/dashboard/Dashboard';
+import Notfoundpage from './components/pages/notfoundpage/Notfoundpage';
 
 
 //styles

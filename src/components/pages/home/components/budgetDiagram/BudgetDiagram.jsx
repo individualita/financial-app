@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import CustomPieChart from '../../../../../common/pieChart/PieChart';
+import CustomPieChart from '../../../../common/pieChart/PieChart';
 
 import styles from './budgetDiagram.module.scss';
 

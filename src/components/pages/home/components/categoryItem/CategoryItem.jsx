@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { formatCurrency } from '../../../../../../../utils/formatCurrency';
+import { formatCurrency } from '../../../../utils/formatCurrency';
 
 import styles from './categoryItem.module.scss';
 

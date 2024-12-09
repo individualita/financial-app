@@ -1,8 +1,8 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import About from "./about/About";
-import MoreMenu from "./moreMenu/MoreMenu";
-import Contact from "./contact/Contact";
-import Notfoundpage from "../../notfoundpage/Notfoundpage";
+import About from '../more/components/about/About';
+import MoreMenu from '../more/components/moreMenu/MoreMenu';
+import Contact from '../more/components/contact/Contact';
+import Notfoundpage from '../notfoundpage/Notfoundpage';
 
 
 const More = () => {

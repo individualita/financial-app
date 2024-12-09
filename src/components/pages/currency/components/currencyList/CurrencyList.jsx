@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 //components
-import CurrencyListItem from './currencyListItem/CurrencyListItem';
+import CurrencyListItem from '../currencyListItem/CurrencyListItem';
 
 //data
 import flagIconsData from "../../../../../data/flagIconsData";

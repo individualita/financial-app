@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 
 //Services and utilities
-import fetchData from '../../../../services/fetchApi';
+import fetchData from '../../../services/fetchApi';
 
 //Components
-import UpdateIcon from '../../../common/icons/UpdateIcon';
-import ErrorMessage from '../../../common/errormessage/ErrorMessage';
-import Spinner from '../../../common/spinner/Spinner'
-import CurrencyList from './currencyList/CurrencyList';
+import UpdateIcon from '../../common/icons/UpdateIcon';
+import ErrorMessage from '../../common/errormessage/ErrorMessage';
+import Spinner from '../../common/spinner/Spinner';
+import CurrencyList from './components/currencyList/CurrencyList';
 
 //styles
 import styles from './currency.module.scss';

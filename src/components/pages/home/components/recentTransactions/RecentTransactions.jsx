@@ -5,7 +5,7 @@ import { useState, useMemo } from "react";
 //Utility for sorting transactions by date
 import sortTransactionsByDate from "../../../../utils/sortTransactionsByDate";
 // Local component for displaying individual transactions
-import TransactionItem from "./transactionItem/TransactionsItem";
+import TransactionItem from "../transactionItem/TransactionsItem";
 // Global components
 import Heading from "../../../../common/heading/Heading";
 import ActionButton from "../../../../common/buttons/actionButton/ActionButton";

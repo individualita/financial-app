@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
 //Utility function to format currency based on locale
-import { formatCurrency } from '../../../../../utils/formatCurrency';
+import {formatCurrency} from '../../../../utils/formatCurrency';
 
-import RemoveButton from '../../../../../common/buttons/removeButton/RemoveButton';
+import RemoveButton from '../../../../common/buttons/removeButton/RemoveButton';
 
 import styles from './transactionsItem.module.scss';
 
