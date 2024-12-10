@@ -85,7 +85,7 @@ const Dashboard = () => {
         setPlans((currentPlans => currentPlans.filter(plan => plan._id !==id)));
     };
 
-
+    
     return (
         <section className="dashboard">
             <TimeDisplay />
