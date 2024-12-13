@@ -1,10 +1,15 @@
+import BackButton from '../../../../components/common/buttons/backButton/BackButton';
 import Heading from '../../../../components/common/heading/Heading';
 import styles from './about.module.scss';
 
 const About = () => {
+
+
+
     return (
         <section className={styles.about}>
             <Heading level={3}> About the Project</Heading>
+            <BackButton />
             <p>
                 Financial app is designed to help users easily manage their finances. With it, you can:
             </p>
