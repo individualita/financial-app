@@ -63,49 +63,21 @@ const Plans = ({plans, addNewPlan, onDeleteNewPlan}) => {
         e.target.style.height = `${e.target.scrollHeight}px`;
     };
 
-    const renderPlansList = plans.map((plan) => {
+    /*const renderPlansList = plans.map((plan) => {
         return (
             <PlanItem key={plan._id} onDeleteNewPlan={onDeleteNewPlan} {...plan}/>
         )
-    });
+    }); */
 
 
     return (
         <section className="plans" aria-labelledby="plans-title">
 
-            <Heading level={3} className={`${styles.subtitle} text-black font-light`}>Keep track of your upcoming expenses and stay prepared for what’s ahead.</Heading>
-            <div className={styles.wrapper}>
-                {renderPlansList}
-                {plans.length === 0 ? (
-                    <div className={styles.info}>Create your first plan:) 
-                        <img className={styles.img}src={hiImg} alt="Green cactus says hello." />
-                    </div> 
-                    ): null}
-
-                <PlansForm  
-                    handleInputChange={handleInputChange}
-                    handleSubmit={handleSubmit}
-                    autoResize={autoResize}
-                    planTitle={planTitle}
-                    planContent={planContent}
-                    hasError={hasError}
-                />
-
-            </div>
+            <div>plans</div>
         </section>
     )
 }
 
-Plans.propTypes = {
-    plans: PropTypes.arrayOf(
-        PropTypes.shape({
-            _id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired, // id может быть числом или строкой
-            title: PropTypes.string.isRequired, 
-            content: PropTypes.string.isRequired, 
-        })
-    ).isRequired, 
-    addNewPlan: PropTypes.func.isRequired, 
-    onDeleteNewPlan: PropTypes.func.isRequired, 
-};
+
 
 export default Plans;

@@ -17,9 +17,9 @@ import More from '../../../pages/more/More';
 import Notfoundpage from '../../../pages/notfoundpage/Notfoundpage';
 
 //styles
-import "./dashboard.scss";
+import "./layout.scss";
 
-const Dashboard = () => {
+const Layout = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     
@@ -87,24 +87,19 @@ const Dashboard = () => {
 
     
     return (
-        <section className="dashboard">
+        <section className="layout">
+            <div>layout</div>
             <TimeDisplay />
             <Heading level={2}>{currentSectionName}</Heading>
             <Outlet />
             <Routes>
-                <Route path="home" element={<Home data={transactions} onDeleteTransaction={onDeleteTransaction} />}/>
-                <Route path="currency" element={<Currency />} />
-                <Route path="plans" element={<Plans plans={plans} addNewPlan={addNewPlan} onDeleteNewPlan={onDeleteNewPlan} />}/>
-                <Route path="more/*" element={<More />} />
-                {/* Перенаправление неизвестных путей на /home */}
-                {/*<Route path="*" element={<Navigate to="/home" replace />} />*/}
-                <Route path="*" element={<Notfoundpage />} />
+
 
             </Routes>
             <Menu  currentSection={currentSection} handleOpenModal={handleOpenModal}/>
-            {isModalOpen && <TransactionModal handleCloseModal={handleCloseModal} addNewTransaction={addNewTransaction} />}
+            {isModalOpen && <TransactionModal handleCloseModal={handleCloseModal}  />}
         </section>
     )
 }
 
-export default Dashboard;
+export default Layout;

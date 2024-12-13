@@ -1,8 +1,5 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import About from '../more/components/about/About';
-import MoreMenu from '../more/components/moreMenu/MoreMenu';
-import Contact from '../more/components/contact/Contact';
-import Notfoundpage from '../notfoundpage/Notfoundpage';
+import {  useLocation , Outlet} from "react-router-dom";
+
 
 
 const More = () => {
@@ -12,15 +9,11 @@ const More = () => {
     const currentSection = currentLocation.split('/').pop();
 
 
+
     return (
         <section className="more">
+            <Outlet />
 
-            <Routes>
-                <Route path=""element={<MoreMenu />}/>
-                <Route path="about" element={<About /> }/>
-                <Route path="contact" element={<Contact /> }/>
-                <Route path="*" element={<Notfoundpage />} />
-            </Routes>
         </section>
     )
 }

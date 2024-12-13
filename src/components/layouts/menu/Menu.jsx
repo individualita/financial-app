@@ -28,12 +28,12 @@ const Menu = ({handleOpenModal, currentSection}) => {
 
             <div className={styles.column}>
 
-                <Link to="/home" className={styles.link} aria-label="Go to the home">
+                <Link to="home" className={styles.link} aria-label="Go to the home">
                     <HomeIcon fill={currentSection === 'home'? colors.active: colors.inactive}/>
                     Home
                 </Link>
 
-                <Link to="/currency" className={styles.link} aria-label="Go to the currency">
+                <Link to="currency" className={styles.link} aria-label="Go to the currency">
                     <CurrencyIcon fill={currentSection === 'currency'? colors.active: colors.inactive}/>
                     Currency
                 </Link>
@@ -44,12 +44,12 @@ const Menu = ({handleOpenModal, currentSection}) => {
             </div>
 
             <div className={styles.column}>
-                <Link to="/plans" className={styles.link} aria-label="Go to the plans">
+                <Link to="plans" className={styles.link} aria-label="Go to the plans">
                         <PlansIcon fill={currentSection === 'plans' ? colors.active: colors.inactive}/>
                         Plans 
                 </Link>
 
-                <Link to="/more" className={styles.link} aria-label="Go to the more">
+                <Link to="more" className={styles.link} aria-label="Go to the more">
                         <MenuIcon fill={currentSection === 'more' || currentSection === 'contact' || currentSection === 'about' ? colors.active: colors.inactive}/>
                         More 
                 </Link>
