@@ -8,8 +8,9 @@ const About = () => {
 
     return (
         <section className={styles.about}>
-            <Heading level={3}> About the Project</Heading>
             <BackButton />
+
+            <Heading level={3}> About the Project</Heading>
             <p>
                 Financial app is designed to help users easily manage their finances. With it, you can:
             </p>

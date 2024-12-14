@@ -1,10 +1,13 @@
 import Heading from "../../../../components/common/heading/Heading";
 
+import BackButton from "../../../../components/common/buttons/backButton/BackButton";
+
 import styles from './contact.module.scss';
 
 const Contact = () => {
     return (
         <section className={styles.contact}>
+            <BackButton />
             <Heading level={3}> Contact me</Heading>
             <p>If you have any questions, suggestions, or just want to chat, feel free to reach out to me:</p>
             
