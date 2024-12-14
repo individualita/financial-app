@@ -88,7 +88,6 @@ const Layout = () => {
     
     return (
         <section className="layout">
-            <div>layout</div>
             <TimeDisplay />
             <Heading level={2}>{currentSectionName}</Heading>
             <Outlet />
