@@ -1,4 +1,4 @@
-const fetchData = async (url) => {
+export const fetchData = async (url) => {
 
     try {
         const response = await fetch(url);
@@ -15,11 +15,8 @@ const fetchData = async (url) => {
         console.error(`Error : ${error}`);
         throw error;
     }
-
-    
 }
 
 
 
 
-export default fetchData;

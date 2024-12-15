@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //import global resources
@@ -11,18 +11,20 @@ import PlanItem from './components/planItem/PlanItem';
 import PlansAddForm from './components/plansAddForm/PlansAddForm';
 
 //kuda?
-import { onDeletePlan} from '../../slices/plansSlice';
+import { deletePlan} from '../../slices/plansSlice';
 
 //import styles for the current component
 import styles from './plans.module.scss';
 
 
 const Plans = () => {
-    //redux
-    const plans = useSelector(state => state.plans);
+    const plans = useSelector(state =>  state.plansReducer.plans);
+
     const dispatch = useDispatch();
 
-
+    useEffect(() => {
+       localStorage.setItem('plans', JSON.stringify(plans));
+    }, [plans]);
 
     const renderPlansList = (array) => {
         return array.length === 0? (
@@ -31,7 +33,7 @@ const Plans = () => {
             </div> 
         ) : (
             array.map(({_id, ...props})=> {
-                return <PlanItem key={_id} onDeletePlan={() => dispatch(onDeletePlan(_id))} {...props}/>
+                return <PlanItem key={_id} deletePlan={() => dispatch(deletePlan(_id))} {...props}/>
             })
         )
     }

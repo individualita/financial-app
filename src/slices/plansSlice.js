@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import plansData from "../data/plansData";
 
 const initialState = {
-    plans: plansData,
+    plans: JSON.parse(localStorage.getItem('plans')) || plansData,
 }
 
 const plansSlice = createSlice({
@@ -13,7 +13,7 @@ const plansSlice = createSlice({
         addNewPlan: (state, action) => {
             state.plans.push(action.payload);
         },
-        onDeletePlan: (state, action) => {
+        deletePlan: (state, action) => {
             state.plans = state.plans.filter(plan => plan._id !== action.payload);
         }
     }
@@ -23,4 +23,4 @@ const {actions, reducer} = plansSlice;
 
 export default reducer;
 
-export const {addNewPlan, onDeletePlan} = actions;
+export const {addNewPlan, deletePlan} = actions;

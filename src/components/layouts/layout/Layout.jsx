@@ -22,7 +22,7 @@ import "./layout.scss";
 const Layout = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+    /*
     const [transactions, setTransactions] = useState(() => {
         const savedTransactions = localStorage.getItem('transactions');
 
@@ -39,7 +39,7 @@ const Layout = () => {
         localStorage.setItem('transactions', JSON.stringify(transactions));
         localStorage.setItem('plans', JSON.stringify(plans));
 
-    }, [transactions, plans]);
+    }, [transactions, plans]); */
 
     const location = useLocation();
     const currentPath = location.pathname;

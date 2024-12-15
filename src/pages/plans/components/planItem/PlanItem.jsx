@@ -4,7 +4,7 @@ import RemoveButton from '../../../../components/common/buttons/removeButton/Rem
 
 import styles from './planItem.module.scss';
 
-const PlanItem = ({ onDeletePlan, title, content, color}) => {
+const PlanItem = ({ deletePlan, title, content, color}) => {
 
 
     return (
@@ -13,7 +13,7 @@ const PlanItem = ({ onDeletePlan, title, content, color}) => {
             <p className={styles.content}>{content}</p>
 
             <RemoveButton
-                onClick={onDeletePlan}
+                onClick={deletePlan}
                 className={styles.deleteButton}
                 aria-label={`Delete plan titled ${title}`}
                 >
@@ -25,7 +25,7 @@ const PlanItem = ({ onDeletePlan, title, content, color}) => {
 }
 
 PlanItem.propTypes = {
-    onDeletePlan: PropTypes.func.isRequired, 
+    deletePlan: PropTypes.func.isRequired, 
     // _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, // _id может быть строкой или числом
     title: PropTypes.string.isRequired, 
     content: PropTypes.string.isRequired, 
