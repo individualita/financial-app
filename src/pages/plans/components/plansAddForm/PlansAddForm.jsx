@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; // библиотека с АЙДИ!!!
-
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import PlansSubmitButton from "../../../../components/common/buttons/plansSubmitButton/PlansSubmitButton";
-
 import { getRandomColor } from '../../../../utils/getRandomColor';
-
 import planBackgroundColors from '../../../../data/planBackgroundColors';
 
 import { addNewPlan } from '../../../../slices/plansSlice';
@@ -19,7 +15,6 @@ const PlansAddForm = () => {
     const [planContent, setPlanContent] = useState('');
     const [hasError, setHasError] = useState(false);
 
-    //redux
     const dispatch = useDispatch();
 
     // Handle input change for both title and content
@@ -95,13 +90,7 @@ const PlansAddForm = () => {
                     Please fill in both title and content.
                 </div>
             )}
-            <PlansSubmitButton
-                type="submit"
-                onClick={handleSubmit}
-                className={styles.submitButton}
-            >
-                Add plan
-            </PlansSubmitButton>
+            <button type="submit" onClick={handleSubmit} className={styles.submitButton}>Add plan</button>
         </form>
     )
 }

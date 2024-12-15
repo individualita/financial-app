@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 //Services and utilities
-import fetchData from '../../services/fetchApi';
+import {fetchData} from '../../services/fetchApi';
 
 //Components
 import UpdateIcon from '../../components/common/icons/UpdateIcon';
@@ -14,6 +14,7 @@ import styles from './currency.module.scss';
 
 const Currency = () => {
     //states
+    /*
     const [currencyData, setCurrencyData] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isError, setIsError] = useState(null);
@@ -34,6 +35,7 @@ const Currency = () => {
         });
     };
 
+    
     // Fetch currency data from API
     const fetchCurrencyData = async () => {
         try {
@@ -58,7 +60,7 @@ const Currency = () => {
         fetchCurrencyData();
 
     }, []);
-
+    */
 
     // Render error message or spinner if needed
     const errorMessage = isError? <ErrorMessage /> : null;
