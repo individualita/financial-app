@@ -1,4 +1,4 @@
-const planBackgroundColors = [
+export const BACKGROUND_COLORS = [
     "#e6f4fa", // светло-голубой
     "#fff4e0", // светло-желтый
     "#ffe8f4", // светло-розовый
@@ -16,4 +16,3 @@ const planBackgroundColors = [
     "#e0fff0"  // светло-мятный
 ];
 
-export default planBackgroundColors;

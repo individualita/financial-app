@@ -4,8 +4,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getRandomColor } from '../../../../utils/getRandomColor';
-import planBackgroundColors from '../../../../data/planBackgroundColors';
-
+import { BACKGROUND_COLORS } from '../../../../constants/backgroundColors';
 import { addNewPlan } from '../../../../slices/plansSlice';
 
 import styles from './plansAddForm.module.scss';
@@ -34,7 +33,7 @@ const PlansAddForm = () => {
             return;
         }
 
-        const color = getRandomColor(planBackgroundColors);
+        const color = getRandomColor(BACKGROUND_COLORS);
 
         dispatch(addNewPlan({
             _id: uuidv4(),

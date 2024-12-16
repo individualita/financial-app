@@ -1,74 +1,90 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //Services and utilities
 import {fetchData} from '../../services/fetchApi';
+
+import { fetchCurrency } from '../../slices/currencySlice';
+
+import { STATUSES } from '../../constants/statuses';
+
+//data
+import flagIconsData from '../../data/flagIconsData';
 
 //Components
 import UpdateIcon from '../../components/common/icons/UpdateIcon';
 import ErrorMessage from '../../components/common/errormessage/ErrorMessage';
 import Spinner from '../../components/common/spinner/Spinner';
 import CurrencyList from './components/currencyList/CurrencyList';
+import CurrencyListItem from './components/currencyListItem/CurrencyListItem';
 
 //styles
 import styles from './currency.module.scss';
 
 const Currency = () => {
-    //states
-    /*
-    const [currencyData, setCurrencyData] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [isError, setIsError] = useState(null);
 
-    // Manage loading and error states
-    const setError = () => setIsError(true);
-    const startLoading = () => setIsLoading(true);
-    const finishLoading = () => setIsLoading(false);
+    const {currencyLoadingStatus} = useSelector(state => state.currencyReducer);
+    const currency = useSelector(state => state.currencyReducer.currency);
+    const dispatch = useDispatch();
 
-    // Handle the successful fetching of currency data
-    const handleCurrencyDataLoad = (data) => {
-        //вытаскиваем объекты которые нам нужны
-        const {USD, CNY, EUR, PLN} = data.Valute;
-        
-        setCurrencyData({
-            date: data.Date,
-            valute: {USD, CNY, EUR, PLN} //кладем только то что нужно.
-        });
-    };
+    useEffect(() => {
+        dispatch(fetchCurrency());
+    }, [dispatch]);
 
-    
-    // Fetch currency data from API
-    const fetchCurrencyData = async () => {
-        try {
-            startLoading();
+    const transformCurrency = (data) => {
 
-            const data = await fetchData('https://www.cbr-xml-daily.ru/daily_json.js')
-                                    .then(handleCurrencyDataLoad);
-                                
-        } catch(error) {
-            setError()
-            console.error('Error loading currency data:', error);
-
-            
-        } finally {
-            finishLoading(); 
+        if (!data || !data.Valute) {
+            return null; // Если данные некорректны, возвращаем null
         }
 
-    };
+        const {USD, CNY, EUR, PLN} = data.Valute;
 
-    // Fetch data when component is mounted
-    useEffect(() => {
-        fetchCurrencyData();
+        return {
+            date: data.Date,
+            valute: {USD, CNY, EUR, PLN}
+        }
+    }
 
-    }, []);
-    */
+    
+    const transformedCurrency =  currency ? transformCurrency(currency) : null
+    console.log(currency);
+    console.log(transformedCurrency);
+
+
+    const renderCurrencyList = (data) => {
+        if (!data || !data.valute) {
+            return null;
+        }
+
+        const {valute} = data;
+
+        const currencyEntries = Object.entries(valute);
+
+        return currencyEntries.map((item) => {
+            const currencyKey = item[0];
+            const currencyValue = item[1];
+            
+            return (
+                <ul>
+                    <CurrencyListItem key={currencyKey} currencyValue={currencyValue} flagIconsData={flagIconsData}/>
+                </ul>
+            )
+            
+        }); 
+
+
+    }
 
     // Render error message or spinner if needed
-    const errorMessage = isError? <ErrorMessage /> : null;
-    const spinner = isLoading? <Spinner /> : null;
+    const errorMessage = currencyLoadingStatus === STATUSES.REJECTED && <ErrorMessage /> ;
+    const spinner = currencyLoadingStatus === STATUSES.PENDING && <Spinner /> ;
 
     return (
         <section className={styles.currency}>
             <h1>currency</h1>
+            {errorMessage}
+            {spinner}
+            {renderCurrencyList(transformedCurrency)}
         </section>
     )
 }
