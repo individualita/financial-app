@@ -9,7 +9,6 @@ const More = () => {
     const currentSection = currentLocation.split('/').pop();
 
 
-
     return (
         <section className="more">
             <Outlet />

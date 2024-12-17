@@ -1,21 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //Services and utilities
-import {fetchData} from '../../services/fetchApi';
-
 import { fetchCurrency } from '../../slices/currencySlice';
 
+//Constants
 import { STATUSES } from '../../constants/statuses';
-
-//data
-import flagIconsData from '../../data/flagIconsData';
 
 //Components
 import UpdateIcon from '../../components/common/icons/UpdateIcon';
 import ErrorMessage from '../../components/common/errormessage/ErrorMessage';
 import Spinner from '../../components/common/spinner/Spinner';
-import CurrencyList from './components/currencyList/CurrencyList';
 import CurrencyListItem from './components/currencyListItem/CurrencyListItem';
 
 //styles
@@ -29,7 +24,9 @@ const Currency = () => {
 
     useEffect(() => {
         dispatch(fetchCurrency());
+
     }, [dispatch]);
+
 
     const transformCurrency = (data) => {
 
@@ -45,46 +42,67 @@ const Currency = () => {
         }
     }
 
-    
-    const transformedCurrency =  currency ? transformCurrency(currency) : null
-    console.log(currency);
-    console.log(transformedCurrency);
 
+    const transformedCurrency =  currency ? transformCurrency(currency) : null
+    /* 
+    transformedCurrency = {
+        date: 'string',
+        valute: {CNY: {}, EUR: {}, PLN: {}}
+    }
+    */ 
+    
 
     const renderCurrencyList = (data) => {
+
+        // Return null if currencyData or valute is not available
         if (!data || !data.valute) {
             return null;
         }
 
+        // Destructure valute from currencyData for easier access
         const {valute} = data;
 
+        // Convert the 'valute' object into an array of [key, value] pairs
         const currencyEntries = Object.entries(valute);
 
         return currencyEntries.map((item) => {
-            const currencyKey = item[0];
-            const currencyValue = item[1];
+            const currencyKey = item[0]; //EUR, USD, PLN...
+            const currencyValue = item[1]; // {}
             
             return (
-                <ul>
-                    <CurrencyListItem key={currencyKey} currencyValue={currencyValue} flagIconsData={flagIconsData}/>
-                </ul>
-            )
-            
+                <CurrencyListItem key={currencyKey} data={currencyValue} />
+            )    
         }); 
 
 
     }
 
     // Render error message or spinner if needed
-    const errorMessage = currencyLoadingStatus === STATUSES.REJECTED && <ErrorMessage /> ;
-    const spinner = currencyLoadingStatus === STATUSES.PENDING && <Spinner /> ;
+    const renderSpinner = () => currencyLoadingStatus === STATUSES.PENDING && <Spinner />;
+    const renderError = () => currencyLoadingStatus === STATUSES.REJECTED && <ErrorMessage />;
+
 
     return (
         <section className={styles.currency}>
-            <h1>currency</h1>
-            {errorMessage}
-            {spinner}
-            {renderCurrencyList(transformedCurrency)}
+            <div className="currency__header">
+
+                <button onClick={() => dispatch(fetchCurrency())} className={styles.updateButton} aria-label="Update currency data" type="button">
+                    <UpdateIcon fill={currencyLoadingStatus === STATUSES.PENDING? 'gray' : 'black'} width={'18px'}/>
+                </button>
+
+                <ul className={styles.list}>
+                    {renderCurrencyList(transformedCurrency)}
+                </ul>
+                {renderError()}
+                {renderSpinner()}
+
+            </div>
+
+            <div className={styles.update}>
+                <span>Last update:</span> 
+                <br />
+                {transformedCurrency ? transformedCurrency.date.slice(0,16).replace('T', ' ') : "Not updated yet"}
+            </div>
         </section>
     )
 }

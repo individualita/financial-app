@@ -12,3 +12,7 @@
         @apply text-xs text-gray-400;
     }
 }
+
+.list {
+    @apply mt-7 flex flex-col gap-4;
+}
