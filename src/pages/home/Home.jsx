@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState, useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 //components
 import HomeHeader from './components/homeHeader/HomeHeader';
@@ -13,6 +14,9 @@ import groupTransactionsByMonth from './../../utils/groupTransactionsByMonth';
 
 
 const Home = () => {
+    const transactions = useSelector(state => state.transactionsReducer.transactions);
+    const dispatch = useDispatch();
+
     const [isAllBudgetsVisible, setIsAllBudgetsVisible] = useState(false);
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -20,6 +24,24 @@ const Home = () => {
 
 
     const toggleAllBudgetsView = () => setIsAllBudgetsVisible(prev => !prev);
+
+    // UseMemo the grouped transactions to avoid recalculating on each render. structure: 2024-08: [{...}]
+    const transactionsGroupedByMonth = useMemo(() => {
+        return groupTransactionsByMonth(transactions);
+    }, [transactions]);
+    
+    // Sort the grouped transactions by month in descending order (latest months first)
+    const sortedTransactionsByMonth = useMemo(() => {
+        return Object.fromEntries(
+            Object.entries(transactionsGroupedByMonth).sort((a, b) => a[0].localeCompare(b[0]))
+        );
+    }, [transactionsGroupedByMonth]);
+       
+
+
+    console.log('Grouped Transactions:', transactionsGroupedByMonth);
+    console.log('Sorted Transactions:', sortedTransactionsByMonth);
+
 
  
 

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+import { fetchData } from "../services/fetchApi";
 import { STATUSES } from "../constants/statuses";
 
 
@@ -13,17 +14,12 @@ const initialState = {
 export const fetchCurrency = createAsyncThunk('currency/fetchCurrency', async (_, thunkAPI) => {
 
     try {
-        const response = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
-
-        if (!response.ok) {
-            throw new Error(`Couldn't fetch ${url}, status ${response.status}`);
-        }
-    
-        const data = await response.json();
+        
+        //call the universal fetchData
+        const data = await fetchData('https://www.cbr-xml-daily.ru/daily_json.js');
         return data;
 
     } catch (error) {
-        console.error(`Error : ${error}`);
         return thunkAPI.rejectWithValue(error.message); // Возвращаем ошибку в Redux
         
     }

@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
+//components
 import RemoveButton from '../../../../components/common/buttons/removeButton/RemoveButton';
 
 import styles from './planItem.module.scss';
 
 const PlanItem = ({ deletePlan, title, content, color}) => {
-
 
     return (
         <article className={styles.card} style={{backgroundColor: color}}>

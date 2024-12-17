@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 //data 
 import plansData from "../../../data/plansData";
-import transactionsData from "../../../data/transactionsData";
+import {transactionsData} from "../../../data/transactionsData";
 
 //Components
 import Heading from "../../common/heading/Heading";
@@ -22,24 +22,6 @@ import "./layout.scss";
 const Layout = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    /*
-    const [transactions, setTransactions] = useState(() => {
-        const savedTransactions = localStorage.getItem('transactions');
-
-        return savedTransactions? JSON.parse(savedTransactions) : transactionsData;
-    });
-    
-    const [plans, setPlans] = useState(() => {
-        const savedPlans = localStorage.getItem('plans');
-        return savedPlans ? JSON.parse(savedPlans) : plansData;
-    });
-
-
-    useEffect(() => {
-        localStorage.setItem('transactions', JSON.stringify(transactions));
-        localStorage.setItem('plans', JSON.stringify(plans));
-
-    }, [transactions, plans]); */
 
     const location = useLocation();
     const currentPath = location.pathname;
