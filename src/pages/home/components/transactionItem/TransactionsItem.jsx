@@ -7,7 +7,7 @@ import RemoveButton from '../../../../components/common/buttons/removeButton/Rem
 
 import styles from './transactionsItem.module.scss';
 
-const TransactionItem = ({icon, category, date, description, amount, amountType, onDeleteTransaction, _id}) => {
+const TransactionItem = ({icon, category, date, description, amount, amountType, deleteTransaction}) => {
 
     //Format the date from YYYY-MM-DD to DD-MM-YYYY
     let [year, month, day] = date.split('-');
@@ -37,7 +37,7 @@ const TransactionItem = ({icon, category, date, description, amount, amountType,
 
 
             <RemoveButton
-                onClick={() => onDeleteTransaction(_id)}
+                onClick={deleteTransaction}
                 className={styles.deleteBtn}
                 aria-label={`Delete transaction ${description}`}
                 >
@@ -47,6 +47,7 @@ const TransactionItem = ({icon, category, date, description, amount, amountType,
     )
 }
 
+/*
 TransactionItem.propTypes = {
     icon: PropTypes.string.isRequired, 
     category: PropTypes.string.isRequired, 
@@ -57,6 +58,6 @@ TransactionItem.propTypes = {
     onDeleteTransaction: PropTypes.func.isRequired, 
     _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
 };
-
+*/
 export default TransactionItem;
 

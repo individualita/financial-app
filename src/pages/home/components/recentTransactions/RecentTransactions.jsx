@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 
 import { useState, useMemo } from "react";
+import { useSelector, useDispatch } from 'react-redux';
+
+//slice??
+import { deleteTransaction } from '../../../../slices/transactionsSlice';
 
 //Utility for sorting transactions by date
 import sortTransactionsByDate from "../../../../utils/sortTransactionsByDate";
@@ -12,16 +16,19 @@ import ActionButton from "../../../../components/common/buttons/actionButton/Act
 
 import styles from "./recentTransactions.module.scss";
 
-const RecentTransactions = ({data, onDeleteTransaction}) => {
-    
+const RecentTransactions = () => {
+  
     const [showAll, setShowAll] = useState(false);
 
     const toggleShowAll = () => setShowAll(!showAll);
 
+    const transactions = useSelector(state => state.transactionsReducer.transactions);
+    const dispatch = useDispatch();
+
     //coppy array and sort transactions by date
     const sortedTransactions = useMemo(() => {
-        return sortTransactionsByDate(data);
-    }, [data]);
+        return sortTransactionsByDate(transactions);
+    }, [transactions]);
 
     // Determine which transactions to display (either all or just the first three)
     const displayedTransactions = showAll ? sortedTransactions : sortedTransactions.slice(0, 3);
@@ -35,6 +42,17 @@ const RecentTransactions = ({data, onDeleteTransaction}) => {
         );
     }
 
+    const renderTransactions = displayedTransactions.map(({_id, ...props}) => {
+        return (
+            <TransactionItem 
+                key={_id}
+                deleteTransaction={() => dispatch(deleteTransaction(_id))}
+                {...props}
+            />
+        )
+    });
+
+
     return (
         <section className={styles.transactions} aria-labelledby="recent-transactions-title">
             <header className={styles.header}>
@@ -45,23 +63,16 @@ const RecentTransactions = ({data, onDeleteTransaction}) => {
             </header>
 
             <ul className={styles.list}>
-                {displayedTransactions.map((transaction) => (
-                    <TransactionItem 
-                        key={transaction._id}
-                        {...transaction}
-                        onDeleteTransaction={onDeleteTransaction}
-                    />
-                ))}
-
+                {renderTransactions}
             </ul>
         </section>
     );
 
 };
-
+/*
 RecentTransactions.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired, // data - обязательный массив объектов
     onDeleteTransaction: PropTypes.func.isRequired, // onDeleteTransaction - обязательная функция
 };
-
+*/
 export default RecentTransactions;

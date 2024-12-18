@@ -14,13 +14,9 @@ import groupTransactionsByMonth from './../../utils/groupTransactionsByMonth';
 
 
 const Home = () => {
-    const transactions = useSelector(state => state.transactionsReducer.transactions);
-    const dispatch = useDispatch();
-
     const [isAllBudgetsVisible, setIsAllBudgetsVisible] = useState(false);
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-    const [currentMonthName, setCurrentMonthName] = useState(new Date().toLocaleString('en-US', {month: 'long'}));
+
+    const transactions = useSelector(state => state.transactionsReducer.transactions);
 
 
     const toggleAllBudgetsView = () => setIsAllBudgetsVisible(prev => !prev);
@@ -48,7 +44,20 @@ const Home = () => {
 
     return (
         <section className="home">
-            <h1>home page</h1>
+            <HomeHeader toggleAllBudgetsView={toggleAllBudgetsView} isAllBudgetsVisible={isAllBudgetsVisible}/>
+
+            {isAllBudgetsVisible ? (<AllBudgets data={sortedTransactionsByMonth} /> 
+            ) : (
+                <>
+                    <BalanceOverview />
+                
+                    <MonthlySummary />
+                
+                    <RecentTransactions
+                    />
+                </>
+            )}
+
 
         </section>
     )
