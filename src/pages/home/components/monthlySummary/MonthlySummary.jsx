@@ -1,4 +1,6 @@
 import { useMemo } from "react";
+import { useSelector } from 'react-redux';
+
 
 //Import local components for displaying budget diagram and expense categories
 import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
@@ -12,10 +14,12 @@ import calculatePercetageByCategory from "../../../../utils/calculatePercentageB
 //styles
 import './monthlySummary.scss';
 
-const MonthlySummary = ({data, monthName, year}) => {
+const MonthlySummary = () => {
+
+    const transactions = useSelector(state => state.transactionsReducer.transactions);
 
     //Проверка
-    if (!data || !Array.isArray(data) || data.length === 0) {
+    if (!transactions || !Array.isArray(transactions) || transactions.length === 0) {
         return (
             <section className="home__summary">
                 <p>No transactions available for this month.</p>
@@ -24,15 +28,15 @@ const MonthlySummary = ({data, monthName, year}) => {
     } 
     
     //Calculate and memoize total income and total expenses for the month
-    const totalExpense = useMemo(() => sumAmountByType(data, 'expense'), [data]);
-    const totalIncome = useMemo(() => sumAmountByType(data, 'income'), [data]);
+    const totalExpense = useMemo(() => sumAmountByType(transactions, 'expense'), [transactions]);
+    const totalIncome = useMemo(() => sumAmountByType(transactions, 'income'), [transactions]);
 
     // Memoize grouping of expenses and calculation of percentages
     //Суммирование расходов по категориям и вычисление процентов
     const categoriesWithPercentage = useMemo(() => {
-        const expenseByCategory = groupExpensesByCategory(data);
+        const expenseByCategory = groupExpensesByCategory(transactions);
         return calculatePercetageByCategory(expenseByCategory, totalIncome);
-    }, [data, totalIncome]);
+    }, [transactions, totalIncome]);
 
 
     // Prepare data for the chart, including category names, amounts, and percentages
@@ -50,7 +54,6 @@ const MonthlySummary = ({data, monthName, year}) => {
                 data={dataForChart} 
                 totalExpense={totalExpense} 
                 totalIncome={totalIncome} 
-                month={`${monthName} ${year}`}
             />
 
             <ExpenseCategories data={categoriesWithPercentage}/>
