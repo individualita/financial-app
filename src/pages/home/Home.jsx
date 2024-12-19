@@ -9,8 +9,9 @@ import MonthlySummary from './components/monthlySummary/MonthlySummary';
 import RecentTransactions from './components/recentTransactions/RecentTransactions';
 import AllBudgets from './components/allBudgets/AllBudgets';
 
-//Utility function for grouping transactions by month
+//Utilities
 import groupTransactionsByMonth from './../../utils/groupTransactionsByMonth';
+import { getDateDetails } from '../../utils/getDateDetails';
 
 
 const Home = () => {
@@ -39,7 +40,13 @@ const Home = () => {
     console.log('Sorted Transactions:', sortedTransactionsByMonth);
 
 
- 
+    
+    // Использование
+    const currentDate = getDateDetails();
+    const {formattedKey, dateLabel} = currentDate; //2024-12 , December 2024.
+
+
+    console.log(sortedTransactionsByMonth[formattedKey])
 
 
     return (
@@ -51,7 +58,7 @@ const Home = () => {
                 <>
                     <BalanceOverview />
                 
-                    <MonthlySummary />
+                    <MonthlySummary data={sortedTransactionsByMonth[formattedKey]}  dateLabel={dateLabel}/>
                 
                     <RecentTransactions
                     />

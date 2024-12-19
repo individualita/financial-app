@@ -9,6 +9,7 @@ import Download from '../../../../components/common/icons/Download';
 
 //Import utility functions
 import sumAmountByType from "../../../../utils/sumAmountByType";
+import { getDateDetails } from '../../../../utils/getDateDetails';
 
 //Import local components
 import MonthlySummary from "../monthlySummary/MonthlySummary";
@@ -16,6 +17,8 @@ import MonthlySummary from "../monthlySummary/MonthlySummary";
 import styles from './allBudgets.module.scss';
 
 const AllBudgets = ({data}) => {
+
+    console.log('allBudgets', data);
 
     //If no data is available, show a message to the user
     if (!data || data.length === 0) {
@@ -33,9 +36,7 @@ const AllBudgets = ({data}) => {
         const year = monthKey.split('-')[0]; //разбиваем на два элемента в массиве 2024, 08. и забираем первый то есть 2024
         const month = monthKey.split('-')[1]; 
 
-        const monthName = new Date(year, month -1).toLocaleString('en-US', { month: 'long' });
-
-        const period = `${monthName} ${year}`;
+        const {dateLabel: period } = getDateDetails(new Date(year, month-1));
 
         // Calculate total income and expenses for the month
         const totalIncome = sumAmountByType(data, 'income' );
@@ -71,11 +72,10 @@ const AllBudgets = ({data}) => {
 
         const monthName = new Date(year, month -1).toLocaleString('en-US', { month: 'long' });
 
+        const dateLabel = `${monthName} ${year}`; //format: 'December 2024' 
+
         return (
-            
-            <MonthlySummary key={`${year}-${month}`} data={data} monthName={monthName} year={year} />
-            
-            
+            <MonthlySummary key={`${year}-${month}`} data={data} dateLabel={dateLabel} />
         )
     });
     
