@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //Utility for calculating the total amount from a dataset
 import calculateTotalAmount from '../../../../utils/calculateTotalAmount';

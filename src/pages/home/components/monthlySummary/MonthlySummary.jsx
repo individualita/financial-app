@@ -14,12 +14,11 @@ import calculatePercetageByCategory from "../../../../utils/calculatePercentageB
 //styles
 import './monthlySummary.scss';
 
-const MonthlySummary = () => {
+const MonthlySummary = ({data, dateLabel}) => {
 
-    const transactions = useSelector(state => state.transactionsReducer.transactions);
 
     //Проверка
-    if (!transactions || !Array.isArray(transactions) || transactions.length === 0) {
+    if (!data || !Array.isArray(data) || data.length === 0) {
         return (
             <section className="home__summary">
                 <p>No transactions available for this month.</p>
@@ -28,15 +27,15 @@ const MonthlySummary = () => {
     } 
     
     //Calculate and memoize total income and total expenses for the month
-    const totalExpense = useMemo(() => sumAmountByType(transactions, 'expense'), [transactions]);
-    const totalIncome = useMemo(() => sumAmountByType(transactions, 'income'), [transactions]);
+    const totalExpense = useMemo(() => sumAmountByType(data, 'expense'), [data]);
+    const totalIncome = useMemo(() => sumAmountByType(data, 'income'), [data]);
 
     // Memoize grouping of expenses and calculation of percentages
     //Суммирование расходов по категориям и вычисление процентов
     const categoriesWithPercentage = useMemo(() => {
-        const expenseByCategory = groupExpensesByCategory(transactions);
+        const expenseByCategory = groupExpensesByCategory(data);
         return calculatePercetageByCategory(expenseByCategory, totalIncome);
-    }, [transactions, totalIncome]);
+    }, [data, totalIncome]);
 
 
     // Prepare data for the chart, including category names, amounts, and percentages
@@ -53,7 +52,8 @@ const MonthlySummary = () => {
             <BudgetDiagram 
                 data={dataForChart} 
                 totalExpense={totalExpense} 
-                totalIncome={totalIncome} 
+                totalIncome={totalIncome}
+                dateLabel={dateLabel} 
             />
 
             <ExpenseCategories data={categoriesWithPercentage}/>

@@ -3,23 +3,18 @@ import PropTypes from 'prop-types';
 
 import CustomPieChart from '../../../../components/common/pieChart/PieChart';
 
-//utils
-import { getCurrentMonthYear } from '../../../../utils/getCurrentMonthYear';
 
 import { categoryColors } from '../../../../constants/categoryColors';
 
 import styles from './budgetDiagram.module.scss';
 
-const BudgetDiagram = ({data, totalIncome, totalExpense}) => {
-
-    const currentMonthYear = getCurrentMonthYear();
-
+const BudgetDiagram = ({data, totalIncome, totalExpense, dateLabel}) => {
 
     return (
         <div className={styles.diagram}>
             <header className="home__diagram-header">
                 <div className={styles.title}>Budget for the month</div>
-                <div className={styles.currentMonthYear}>{currentMonthYear}</div>
+                <div className={styles.currentMonthYear}>{dateLabel}</div>
             </header>
             <CustomPieChart data={data} width={150} height={200} innerRadius={40} outerRadius={60} colors={categoryColors}  />
 
