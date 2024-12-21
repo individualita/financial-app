@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import CustomPieChart from '../../../../components/common/pieChart/PieChart';
-
 
 import { categoryColors } from '../../../../constants/categoryColors';
 
@@ -14,7 +12,7 @@ const BudgetDiagram = ({data, totalIncome, totalExpense, dateLabel}) => {
         <div className={styles.diagram}>
             <header className="home__diagram-header">
                 <div className={styles.title}>Budget for the month</div>
-                <div className={styles.currentMonthYear}>{dateLabel}</div>
+                <div className={styles.dateLabel}>{dateLabel}</div>
             </header>
             <CustomPieChart data={data} width={150} height={200} innerRadius={40} outerRadius={60} colors={categoryColors}  />
 
@@ -31,7 +29,7 @@ BudgetDiagram.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired, 
     totalIncome: PropTypes.number.isRequired, 
     totalExpense: PropTypes.number.isRequired, 
-    month: PropTypes.string.isRequired, 
+    dateLabel: PropTypes.string.isRequired, 
 };
 
 export default BudgetDiagram;

@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid'; // библиотека с АЙДИ!!!
+import { v4 as uuidv4 } from 'uuid'; //id library
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { getRandomColor } from '../../../../utils/getRandomColor';
 import { BACKGROUND_COLORS } from '../../../../constants/backgroundColors';
+
+//function
 import { addNewPlan } from '../../../../slices/plansSlice';
 
 import styles from './plansAddForm.module.scss';
@@ -89,19 +90,10 @@ const PlansAddForm = () => {
                     Please fill in both title and content.
                 </div>
             )}
-            <button type="submit" onClick={handleSubmit} className={styles.submitButton}>Add plan</button>
+            <button type="submit" className={styles.submitButton}>Add plan</button>
         </form>
     )
 }
 
-/*
-PlansForm.propTypes = {
-    handleInputChange: PropTypes.func.isRequired, 
-    handleSubmit: PropTypes.func.isRequired, 
-    autoResize: PropTypes.func.isRequired,
-    planTitle: PropTypes.string.isRequired, 
-    planContent: PropTypes.string.isRequired, 
-    hasError: PropTypes.bool.isRequired
-};
-*/
+
 export default PlansAddForm;

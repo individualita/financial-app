@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
+import RemoveButton from '../../../../components/common/buttons/removeButton/RemoveButton';
+
 //Utility function to format currency based on locale
 import {formatCurrency} from '../../../../utils/formatCurrency';
-
-import RemoveButton from '../../../../components/common/buttons/removeButton/RemoveButton';
 
 import styles from './transactionsItem.module.scss';
 
@@ -47,7 +47,7 @@ const TransactionItem = ({icon, category, date, description, amount, amountType,
     )
 }
 
-/*
+
 TransactionItem.propTypes = {
     icon: PropTypes.string.isRequired, 
     category: PropTypes.string.isRequired, 
@@ -55,9 +55,8 @@ TransactionItem.propTypes = {
     description: PropTypes.string, 
     amount: PropTypes.number.isRequired, 
     amountType: PropTypes.oneOf(['income', 'expense']).isRequired, 
-    onDeleteTransaction: PropTypes.func.isRequired, 
-    _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+    deleteTransaction: PropTypes.func.isRequired, 
 };
-*/
+
 export default TransactionItem;
 

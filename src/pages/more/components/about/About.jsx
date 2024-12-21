@@ -1,10 +1,9 @@
 import BackButton from '../../../../components/common/buttons/backButton/BackButton';
 import Heading from '../../../../components/common/heading/Heading';
+
 import styles from './about.module.scss';
 
 const About = () => {
-
-
 
     return (
         <section className={styles.about}>

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -10,7 +9,7 @@ import Heading from '../../components/common/heading/Heading';
 import PlanItem from './components/planItem/PlanItem';
 import PlansAddForm from './components/plansAddForm/PlansAddForm';
 
-//kuda?
+//functions
 import { deletePlan} from '../../slices/plansSlice';
 
 //import styles for the current component
@@ -38,7 +37,6 @@ const Plans = () => {
         )
     }
 
-    console.log(plans);
     return (
         <section className="plans" aria-labelledby="plans-title">
 

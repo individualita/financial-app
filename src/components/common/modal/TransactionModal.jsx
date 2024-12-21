@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom'
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid'; //id library
+
+import { addTransaction } from '../../../slices/transactionsSlice';
+
+import { icons } from '../../../constants/icons';
 
 import styles from './transactionModal.module.scss';
 
 
-const TransactionModal = ({handleCloseModal, addNewTransaction}) => {
+const TransactionModal = ({handleCloseModal}) => {
 
     const [amount, setAmount] = useState(0);
     const [selectedCategory, setSelectedCategory] = useState('');
@@ -14,16 +20,12 @@ const TransactionModal = ({handleCloseModal, addNewTransaction}) => {
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState({});
 
+    const dispatch = useDispatch();
+
 
 
     // Icons for categories
     const getCategoryIcon = (category) => {
-        const icons = {
-            Salary: '💲', Rent: '🏠', Groceries: '🛒', JunkFood: '🍕', Internet: '💻',
-            Clothes: '👕', Pharmacy: '💊', Restaurant: '🍴', Travel: '🌍', Gifts: '🎁',
-            Bills: '📠', Other: '...'
-        };
-
         return icons[category] || '...';
     };
 
@@ -56,15 +58,17 @@ const TransactionModal = ({handleCloseModal, addNewTransaction}) => {
                                    
         // Close modal and pass data
         handleCloseModal();
-        return addNewTransaction({
-            _id: `${selectedCategory}_${Date.now()}`,
-            icon: getCategoryIcon(selectedCategory),
-            category: selectedCategory,
-            date: date,
-            description: description,
-            amount: amountType === 'expense'? -Number(amount) : Number(amount),
-            amountType: amountType,
-        });
+        dispatch(addTransaction(
+            {
+                _id: uuidv4(),
+                icon: getCategoryIcon(selectedCategory),
+                category: selectedCategory,
+                date: date,
+                description: description,
+                amount: amountType === 'expense'? -Number(amount) : Number(amount),
+                amountType: amountType,
+            }
+        ));
 
 
     }
@@ -201,10 +205,9 @@ const TransactionModal = ({handleCloseModal, addNewTransaction}) => {
         </div>, document.getElementById('modal-root')
     )
 }
-
+/*
 TransactionModal.propTypes = {
     handleCloseModal: PropTypes.func.isRequired,
-    addNewTransaction: PropTypes.func.isRequired
-}
+}*/
 
 export default TransactionModal;

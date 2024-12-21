@@ -1,18 +1,17 @@
-import PropTypes from 'prop-types';
-
 import { useState, useMemo } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 
-//slice??
-import { deleteTransaction } from '../../../../slices/transactionsSlice';
-
-//Utility for sorting transactions by date
-import sortTransactionsByDate from "../../../../utils/sortTransactionsByDate";
-// Local component for displaying individual transactions
-import TransactionItem from "../transactionItem/TransactionsItem";
 // Global components
 import Heading from '../../../../components/common/heading/Heading'
 import ActionButton from "../../../../components/common/buttons/actionButton/ActionButton";
+
+// Local component for displaying individual transactions
+import TransactionItem from "../transactionItem/TransactionsItem";
+
+//function
+import { deleteTransaction } from '../../../../slices/transactionsSlice';
+//Utility for sorting transactions by date
+import sortTransactionsByDate from "../../../../utils/sortTransactionsByDate";
 
 import styles from "./recentTransactions.module.scss";
 
@@ -69,10 +68,5 @@ const RecentTransactions = () => {
     );
 
 };
-/*
-RecentTransactions.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired, // data - обязательный массив объектов
-    onDeleteTransaction: PropTypes.func.isRequired, // onDeleteTransaction - обязательная функция
-};
-*/
+
 export default RecentTransactions;

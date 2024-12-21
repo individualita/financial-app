@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
+
 import dogImg from './dog.png';
+
 import styles from './notfoundpage.module.scss';
 
 const Notfoundpage = () => {

@@ -1,0 +1,116 @@
+
+.modal {
+    @apply  fixed top-0 right-0 left-0 z-50 flex flex-col justify-center items-center w-full h-full;
+    backdrop-filter: blur(2px);
+}
+
+.wrapper {
+    @apply relative p-4 w-full max-w-md max-h-full;
+}
+
+.content {
+    @apply p-4 w-full max-w-md  bg-white rounded-xl shadow dark:bg-gray-700;
+    background: white !important; // ensure white background for safari browser
+}
+
+.header {
+    @apply flex items-center justify-between   border-b rounded-t;
+}
+
+.title {
+    @apply text-base font-semibold ;
+}
+
+.closeModal {
+    @apply end-2.5 text-2xl w-8 h-8 ms-auto;
+}
+
+.formGroup {
+    @apply mt-3;
+}
+
+.amount {
+    @apply flex flex-col gap-5;
+}
+
+.type {
+    @apply flex mt-3 bg-gray-100 rounded-lg border;
+}
+
+.display {
+    @apply flex justify-center items-end text-5xl mt-7 font-medium;
+    span {
+        @apply text-xl;
+    }
+}
+
+.input,
+.select {
+    @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block min-w-full p-3;
+}
+
+
+
+
+.inputError {
+    border: 1px solid red;
+}
+
+
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: 12px;
+}
+
+
+.button {
+    @apply flex-1 p-3 rounded-lg  bg-white text-xs border border-gray-100  focus:outline-none;
+}
+
+.buttonExpense {
+    background-color: var(--color-accent-red);
+}
+
+.buttonIncome {
+    background-color: var(--color-accent-green);
+}
+
+.submitButton {
+    @apply mt-7 w-full p-3 text-white rounded-full cursor-pointer bg-gray-800 text-xs;
+}
+
+
+
+/* Lower the styles for Safari browser, as it's displaying incorrectly */
+
+.select {
+    @apply bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block min-w-full;
+    appearance: none;
+    padding: 0.75rem !important;
+}
+
+
+.input[type="date"] {
+    @apply appearance-none bg-gray-100 border border-gray-100 text-xs rounded-lg focus:border-gray-500 block w-full p-3; //appearance-none = remove default styles
+    -webkit-appearance: none !important; 
+    -webkit-padding-start: 0.75rem !important; /* Префикс для Safari */
+    -webkit-padding-end: 0.75rem !important; /* Префикс для Safari */
+    position: relative;
+    padding: 0.75rem !important;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-image: url('../../../assets/icons/calendar.png'); //add calendar icon
+    background-repeat: no-repeat;
+    background-position: right 10px center; 
+    background-size: 20px 20px; 
+}
+
+input[type="date"]:invalid {
+    padding: 0.75rem !important; /* padding for empty value */
+}
+//Hide default date icon. Скрываем стандартную иконку
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}

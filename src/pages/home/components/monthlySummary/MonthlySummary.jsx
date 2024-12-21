@@ -1,21 +1,17 @@
 import { useMemo } from "react";
-import { useSelector } from 'react-redux';
-
 
 //Import local components for displaying budget diagram and expense categories
+import Heading from "../../../../components/common/heading/Heading";
 import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
-import ExpenseCategories from "../expenseCategories/ExpenseCategories";
+import CategoryList from "../categoryList/CategoryList";
 
 //Import utility functions for calculations
 import sumAmountByType from "../../../../utils/sumAmountByType";
 import groupExpensesByCategory from "../../../../utils/groupExpensesByCategory";
 import calculatePercetageByCategory from "../../../../utils/calculatePercentageByCategory";
 
-//styles
-import './monthlySummary.scss';
 
 const MonthlySummary = ({data, dateLabel}) => {
-
 
     //Проверка
     if (!data || !Array.isArray(data) || data.length === 0) {
@@ -55,8 +51,11 @@ const MonthlySummary = ({data, dateLabel}) => {
                 totalIncome={totalIncome}
                 dateLabel={dateLabel} 
             />
-
-            <ExpenseCategories data={categoriesWithPercentage}/>
+            
+            <div className="home__category">
+                <Heading level={3} className="font-medium">Main expenses</Heading>
+                <CategoryList data={categoriesWithPercentage} />
+            </div>            
         </section>
     )
 }
