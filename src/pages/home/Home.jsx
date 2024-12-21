@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { useState, useMemo } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //components
 import HomeHeader from './components/homeHeader/HomeHeader';
@@ -13,41 +12,32 @@ import AllBudgets from './components/allBudgets/AllBudgets';
 import groupTransactionsByMonth from './../../utils/groupTransactionsByMonth';
 import { getDateDetails } from '../../utils/getDateDetails';
 
+import './home.scss';
+
 
 const Home = () => {
     const [isAllBudgetsVisible, setIsAllBudgetsVisible] = useState(false);
 
     const transactions = useSelector(state => state.transactionsReducer.transactions);
 
-
     const toggleAllBudgetsView = () => setIsAllBudgetsVisible(prev => !prev);
 
-    // UseMemo the grouped transactions to avoid recalculating on each render. structure: 2024-08: [{...}]
-    const transactionsGroupedByMonth = useMemo(() => {
-        return groupTransactionsByMonth(transactions);
-    }, [transactions]);
     
     // Sort the grouped transactions by month in descending order (latest months first)
     const sortedTransactionsByMonth = useMemo(() => {
+        //group transactions. structure: 2024-08: [{...}];
+        const groupedTransactions = groupTransactionsByMonth(transactions);
+
         return Object.fromEntries(
-            Object.entries(transactionsGroupedByMonth).sort((a, b) => a[0].localeCompare(b[0]))
+            Object.entries(groupedTransactions).sort((a, b) => b[0].localeCompare(a[0]))
         );
-    }, [transactionsGroupedByMonth]);
-       
 
-
-    console.log('Grouped Transactions:', transactionsGroupedByMonth);
-    console.log('Sorted Transactions:', sortedTransactionsByMonth);
-
+    }, [transactions]);
 
     
-    // Использование
+    // current date 
     const currentDate = getDateDetails();
-    const {formattedKey, dateLabel} = currentDate; //2024-12 , December 2024.
-
-
-    console.log(sortedTransactionsByMonth[formattedKey])
-
+    const {formattedKey, dateLabel} = currentDate; //formattedKey - 2024-12 , dateLabel - December 2024.
 
     return (
         <section className="home">
@@ -64,7 +54,6 @@ const Home = () => {
                     />
                 </>
             )}
-
 
         </section>
     )

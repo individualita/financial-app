@@ -18,8 +18,6 @@ import styles from './allBudgets.module.scss';
 
 const AllBudgets = ({data}) => {
 
-    console.log('allBudgets', data);
-
     //If no data is available, show a message to the user
     if (!data || data.length === 0) {
         return (
@@ -52,7 +50,6 @@ const AllBudgets = ({data}) => {
     
         const columns = ['Period', 'Income', 'Expenses summary', 'Remainder'];
     
-            
         doc.autoTable({
             head: [columns],
             body: pdfData.map(item => [item.period, item.totalIncome, item.totalExpense, item.remainder] )
@@ -66,16 +63,14 @@ const AllBudgets = ({data}) => {
     const renderMonthlySummaries = Object.entries(data).map((item) => {
         const [monthKey, data] = item;
 
-        // monthKey - это строка формата '2024-09'
+        // monthKey -  строка формата '2024-09'
         const year = monthKey.split('-')[0]; //разбиваем на два элемента в массиве 2024, 08. и забираем первый то есть 2024
         const month = monthKey.split('-')[1]; 
 
-        const monthName = new Date(year, month -1).toLocaleString('en-US', { month: 'long' });
-
-        const dateLabel = `${monthName} ${year}`; //format: 'December 2024' 
+        const {dateLabel, formattedKey} = getDateDetails(new Date(year, month -1));
 
         return (
-            <MonthlySummary key={`${year}-${month}`} data={data} dateLabel={dateLabel} />
+            <MonthlySummary key={formattedKey} data={data} dateLabel={dateLabel} />
         )
     });
     

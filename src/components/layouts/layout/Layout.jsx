@@ -46,26 +46,6 @@ const Layout = () => {
     const handleOpenModal = () => setIsModalOpen(true);
     const handleCloseModal = () => setIsModalOpen(false);
 
-    const addNewTransaction = (newTransaction) => {
-        setTransactions((prev) => {
-            return [newTransaction, ...prev];
-        });
-    }
-
-    const onDeleteTransaction = (id) => {
-
-        setTransactions((currentTransactions => currentTransactions.filter(transaction => transaction._id !== id)))
-    }
-
-    const addNewPlan = (newPlan) => {
-        setPlans((prev) => {
-            return [...prev, newPlan]
-        });
-    }
-
-    const onDeleteNewPlan = (id) => {
-        setPlans((currentPlans => currentPlans.filter(plan => plan._id !==id)));
-    };
 
     
     return (

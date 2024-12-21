@@ -26,7 +26,6 @@ const PlanItem = ({ deletePlan, title, content, color}) => {
 
 PlanItem.propTypes = {
     deletePlan: PropTypes.func.isRequired, 
-    // _id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, // _id может быть строкой или числом
     title: PropTypes.string.isRequired, 
     content: PropTypes.string.isRequired, 
     color: PropTypes.string.isRequired

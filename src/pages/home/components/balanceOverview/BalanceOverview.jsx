@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
@@ -7,7 +5,6 @@ import { useSelector } from 'react-redux';
 import calculateTotalAmount from '../../../../utils/calculateTotalAmount';
 //Utility for formatting numbers as currency
 import { formatCurrency } from '../../../../utils/formatCurrency';
-
 
 import styles from './balanceOverview.module.scss';
 
@@ -40,10 +37,5 @@ const BalanceOverview = () => {
     )
 }
 
-/*
-BalanceOverview.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired, 
-};
-*/
 export default BalanceOverview;
 

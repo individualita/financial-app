@@ -4,7 +4,7 @@ import { lazy, Suspense } from 'react';
 //components 
 import Container from './components/layouts/container/Container';
 import Welcome from './pages/welcome/Welcome';
-import Layout from './components/layouts/Layout/Layout';
+import Layout from './components/layouts/layout/Layout';
 import Home from './pages/home/Home';
 import Currency from './pages/currency/Currency';
 import Plans from './pages/plans/Plans';

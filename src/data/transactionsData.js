@@ -40,6 +40,26 @@ export const transactionsData = [
     },
 
     {
+        _id: 889,
+        icon: '💲',
+        category: 'Salary',
+        date: '2024-08-01',
+        description: 'Initial income :)',
+        amount: 5000.00,
+        amountType: 'income',
+    },
+
+    {
+        _id: 286,
+        icon: '💻',
+        category: 'Internet',
+        date: '2024-08-12',
+        description: 'Initial expense :)',
+        amount: -130.00,
+        amountType: 'expense',
+    },
+
+    {
         _id: 282,
         icon: '📠',
         category: 'Bills',
@@ -67,7 +87,7 @@ export const transactionsData = [
         description: 'Initial income :)',
         amount: 10000.00,
         amountType: 'income',
-    },
+    }
 
     
 ];
