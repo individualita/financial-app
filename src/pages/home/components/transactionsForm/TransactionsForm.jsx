@@ -1,31 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'; //id library
 
+import { addTransaction } from '../../../../slices/transactionsSlice';
 
 import { icons } from '../../../../constants/icons';
 
-import styles from './transactionsAddForm.module.scss';
+import styles from './transactionsForm.module.scss';
 
-const TransactionsAddForm = () => {
+const TransactionsForm = ({handleCloseModal}) => {
 
     
-    const [amount, setAmount] = useState(0);
+    const [amount, setAmount] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [amountType, setAmountType] = useState('expense');
     const [date, setDate] = useState(null);
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState({});
 
+    const inputRef = useRef(null);
+
     const dispatch = useDispatch();
 
+    
+    useEffect(() => {
+
+        //focus on amount input 
+        inputRef.current.focus();
+
+        const handleKeyDown = (event) => {
+            if (event.key === 'Escape') {
+              handleCloseModal();
+            }
+        };
+
+        //Close the modal window by pressing the Escape key
+        document.addEventListener('keydown', handleKeyDown);
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+        };
+
+    }, [handleCloseModal]);
 
 
     // Icons for categories
     const getCategoryIcon = (category) => {
         return icons[category] || '...';
     };
-
 
 
      // Validate all fields
@@ -53,8 +75,7 @@ const TransactionsAddForm = () => {
         } 
 
                                    
-        // Close modal and pass data
-        handleCloseModal();
+
         dispatch(addTransaction(
             {
                 _id: uuidv4(),
@@ -67,8 +88,25 @@ const TransactionsAddForm = () => {
             }
         ));
 
+        // Close modal and pass data
+        handleCloseModal();
 
     }
+
+    const renderCategoryOptions = (iconsObj) => {
+
+        return Object.entries(iconsObj).map(([category, icon]) => {
+
+            return (
+                <option key={category} value={category}>
+                    {icon} {category}
+                </option>
+            )
+        })
+    };
+
+
+
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -84,6 +122,7 @@ const TransactionsAddForm = () => {
                     type="number" 
                     name="amount" 
                     placeholder="Amount"
+                    ref={inputRef}
                 />
                 
             </div>
@@ -100,18 +139,7 @@ const TransactionsAddForm = () => {
                     aria-placeholder="Category"
                 >
                     <option value="">Select Category</option>
-                    <option value="Salary">💲 Salary</option>
-                    <option value="Rent">🏠 Rent</option>
-                    <option value="Groceries"> 🛒 Groceries</option>
-                    <option value="JunkFood"> 🍕 Junk food</option>
-                    <option value="Internet">💻 Internet </option>
-                    <option value="Clothes"> 👕 Clothes</option>
-                    <option value="Pharmacy"> 💊 Pharmacy</option>
-                    <option value="Restaurant"> 🍴 Restaurant</option>
-                    <option value="Travel"> 🌍 Travel</option>
-                    <option value="Gifts"> 🎁 Gifts</option>
-                    <option value="Bills"> 📠 Bills</option>
-                    <option value="Other">  Other</option>
+                    {renderCategoryOptions(icons)}
                 </select>
                 {errors.selectedCategory? <div className={styles.error}>{errors.selectedCategory}</div> : null}
         
@@ -180,4 +208,4 @@ const TransactionsAddForm = () => {
 
 }
 
-export default TransactionsAddForm;
+export default TransactionsForm;
