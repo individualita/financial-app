@@ -1,0 +1,26 @@
+
+.modal {
+    @apply  fixed top-0 right-0 left-0 z-50 flex flex-col justify-center items-center w-full h-full;
+    backdrop-filter: blur(2px);
+}
+
+.wrapper {
+    @apply relative p-4 w-full max-w-md max-h-full;
+}
+
+.content {
+    @apply p-4 w-full max-w-md  bg-white rounded-xl shadow dark:bg-gray-700;
+    background: white !important; // ensure white background for safari browser
+}
+
+.header {
+    @apply flex items-center justify-between   border-b rounded-t;
+}
+
+.title {
+    @apply text-base font-semibold ;
+}
+
+.closeModal {
+    @apply end-2.5 text-2xl w-8 h-8 ms-auto;
+}
