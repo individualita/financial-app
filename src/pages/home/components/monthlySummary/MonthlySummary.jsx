@@ -6,9 +6,9 @@ import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
 import CategoryList from "../categoryList/CategoryList";
 
 //Import utility functions for calculations
-import sumAmountByType from "../../../../utils/sumAmountByType";
-import groupExpensesByCategory from "../../../../utils/groupExpensesByCategory";
-import calculatePercetageByCategory from "../../../../utils/calculatePercentageByCategory";
+import {sumAmountByType} from "../../../../utils/sumAmountByType";
+import {groupExpensesByCategory} from "../../../../utils/groupExpensesByCategory";
+import {calculatePercetageByCategory} from "../../../../utils/calculatePercentageByCategory";
 
 
 const MonthlySummary = ({data, dateLabel}) => {

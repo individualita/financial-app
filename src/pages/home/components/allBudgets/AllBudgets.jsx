@@ -8,7 +8,7 @@ import 'jspdf-autotable';
 import Download from '../../../../components/common/icons/Download';
 
 //Import utility functions
-import sumAmountByType from "../../../../utils/sumAmountByType";
+import {sumAmountByType} from "../../../../utils/sumAmountByType";
 import { getDateDetails } from '../../../../utils/getDateDetails';
 
 //Import local components

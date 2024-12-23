@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 //Utility for calculating the total amount from a dataset
-import calculateTotalAmount from '../../../../utils/calculateTotalAmount';
+import {calculateTotalAmount} from '../../../../utils/calculateTotalAmount';
 //Utility for formatting numbers as currency
 import { formatCurrency } from '../../../../utils/formatCurrency';
 

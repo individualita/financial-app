@@ -1,4 +1,4 @@
-const calculatePercetageByCategory = (categories, totalIncome) => {
+export const calculatePercetageByCategory = (categories, totalIncome) => {
     return categories.map(item => {
         return {
             ...item,
@@ -7,4 +7,3 @@ const calculatePercetageByCategory = (categories, totalIncome) => {
     }).sort((a,b) => b.amount - a.amount); //сортировка по убыванию суммы
 }
 
-export default calculatePercetageByCategory;

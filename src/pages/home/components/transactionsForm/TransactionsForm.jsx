@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'; //id library
 
+
+import {ICONS} from '../../../../constants/icons';
+
 import { addTransaction } from '../../../../slices/transactionsSlice';
 
-import { icons } from '../../../../constants/icons';
 
 import styles from './transactionsForm.module.scss';
 
@@ -46,7 +48,7 @@ const TransactionsForm = ({handleCloseModal}) => {
 
     // Icons for categories
     const getCategoryIcon = (category) => {
-        return icons[category] || '...';
+        return ICONS[category] || '...';
     };
 
 
@@ -139,7 +141,7 @@ const TransactionsForm = ({handleCloseModal}) => {
                     aria-placeholder="Category"
                 >
                     <option value="">Select Category</option>
-                    {renderCategoryOptions(icons)}
+                    {renderCategoryOptions(ICONS)}
                 </select>
                 {errors.selectedCategory? <div className={styles.error}>{errors.selectedCategory}</div> : null}
         
@@ -169,14 +171,14 @@ const TransactionsForm = ({handleCloseModal}) => {
         
             {/* Date input */}
             <div className={styles.formGroup}>
-                <input 
+                {<input 
                     onChange={(e) => setDate(e.target.value)}
                     className={`${styles.input} ${errors.date? styles.inputError : ''}`}
                     type="date" 
                     name="date" 
                     id="date"
                     placeholder="dd.mm.year"  
-                />
+                />}
                 {errors.date? <div className={styles.error}>{errors.date}</div> : null}
         
             </div>
