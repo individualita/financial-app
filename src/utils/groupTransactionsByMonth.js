@@ -1,4 +1,4 @@
-const groupTransactionsByMonth = (transactions) => {
+export const groupTransactionsByMonth = (transactions) => {
     return transactions.reduce((acc,item) => {
 
         // Extract the month name from the transaction date
@@ -21,4 +21,3 @@ const groupTransactionsByMonth = (transactions) => {
     }, {});
 }
 
-export default groupTransactionsByMonth;

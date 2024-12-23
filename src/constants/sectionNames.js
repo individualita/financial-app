@@ -1,4 +1,4 @@
-export const sectionNames = {
+export const SECTION_NAMES = {
     '': 'Home',
     home: 'Home',
     currency: 'Daily Currency Rates',

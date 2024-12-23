@@ -1,4 +1,4 @@
-const groupExpensesByCategory = (data) => {
+export const groupExpensesByCategory = (data) => {
     return data.reduce((acc, currentTransaction) => {
         if (currentTransaction.amountType === 'expense') {
             
@@ -23,4 +23,3 @@ const groupExpensesByCategory = (data) => {
     },[]);  
 };
 
-export default groupExpensesByCategory;

@@ -1,23 +1,14 @@
-import { Outlet, Routes, Route,  useLocation } from 'react-router-dom';
-import { useState, useEffect, useCallback } from "react";
-
-//data 
-import plansData from "../../../data/plansData";
-import {transactionsData} from "../../../data/transactionsData";
+import { Outlet, useLocation } from 'react-router-dom';
+import { useState} from "react";
 
 //constants
-import { sectionNames } from '../../../constants/sectionNames';
+import { SECTION_NAMES } from '../../../constants/sectionNames';
 
 //Components
 import Heading from "../../common/heading/Heading";
 import TimeDisplay from "../timedisplay/TimeDisplay";
-import Home from '../../../pages/home/Home';
-import Currency from '../../../pages/currency/Currency';
-import Plans from '../../../pages/plans/Plans';
 import Menu from '../menu/Menu';
 import TransactionModal from '../../../pages/home/components/transactionModal/TransactionModal';
-import More from '../../../pages/more/More';
-import Notfoundpage from '../../../pages/notfoundpage/Notfoundpage';
 
 //styles
 import "./layout.scss";
@@ -31,7 +22,7 @@ const Layout = () => {
     const currentSection = currentPath.split('/').pop() || 'home';
 
     // Сопоставление путей с названиями разделов
-    const currentSectionName = sectionNames[currentSection] || 'Home';
+    const currentSectionName = SECTION_NAMES[currentSection] || 'Home';
 
 
   // Handlers for opening/closing the transaction modal

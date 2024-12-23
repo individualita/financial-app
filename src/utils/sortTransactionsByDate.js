@@ -1,5 +1,4 @@
-const sortTransactionsByDate = (transactions) => {
+export const sortTransactionsByDate = (transactions) => {
     return [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
 }
 
-export default sortTransactionsByDate;

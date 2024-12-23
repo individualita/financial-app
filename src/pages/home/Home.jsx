@@ -9,7 +9,7 @@ import RecentTransactions from './components/recentTransactions/RecentTransactio
 import AllBudgets from './components/allBudgets/AllBudgets';
 
 //Utilities
-import groupTransactionsByMonth from './../../utils/groupTransactionsByMonth';
+import { groupTransactionsByMonth } from './../../utils/groupTransactionsByMonth';
 import { getDateDetails } from '../../utils/getDateDetails';
 
 import './home.scss';

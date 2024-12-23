@@ -1,4 +1,4 @@
-export const categoryColors = {
+export const CATEGORY_COLORS = {
     JunkFood: '#FF4500',     
     Restaurant: '#1E90FF',   
     Clothes: '#ff0ff3',      
