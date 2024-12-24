@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'; //id library
+import PropTypes from 'prop-types';
 
 
-import {ICONS} from '../../../../constants/icons';
+import { ICONS } from '../../../../constants/icons';
 
 import { addTransaction } from '../../../../slices/transactionsSlice';
 
@@ -208,6 +209,10 @@ const TransactionsForm = ({handleCloseModal}) => {
 
     )
 
+}
+
+TransactionsForm.propTypes = {
+    handleCloseModal: PropTypes.func.isRequired
 }
 
 export default TransactionsForm;

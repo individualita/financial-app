@@ -7,7 +7,7 @@ const BackButton = () => {
     const navigate = useNavigate();
 
     const goBack = () => {
-        navigate(-1); // Возвращает на предыдущую страницу
+        navigate(-1); 
     };
 
     return (

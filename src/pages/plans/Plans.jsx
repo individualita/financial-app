@@ -10,7 +10,7 @@ import PlanItem from './components/planItem/PlanItem';
 import PlansAddForm from './components/plansAddForm/PlansAddForm';
 
 //functions
-import { deletePlan} from '../../slices/plansSlice';
+import { deletePlan } from '../../slices/plansSlice';
 
 //import styles for the current component
 import styles from './plans.module.scss';

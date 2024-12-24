@@ -16,10 +16,14 @@
 }
 
 .link {
-    @apply flex flex-col items-center text-xs gap-1;
-    
+    @apply flex flex-col items-center text-xs gap-1 text-gray-500;
+}
+
+.activeLink {
+    @apply text-black;
 }
 
 .icon {
     @apply w-6 h-6;
 }
+

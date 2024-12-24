@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 //Utility for calculating the total amount from a dataset
-import {calculateTotalAmount} from '../../../../utils/calculateTotalAmount';
+import { calculateTotalAmount } from '../../../../utils/calculateTotalAmount';
 //Utility for formatting numbers as currency
 import { formatCurrency } from '../../../../utils/formatCurrency';
 
@@ -15,8 +15,8 @@ const BalanceOverview = () => {
     //Check if data is valid (non-empty array)
     if (!transactions || !Array.isArray(transactions) || transactions.length === 0) {
         return (
-            <section className="home__balance">
-                <p className="home__balance-text">Total balance not available</p>
+            <section className={styles.balance}>
+                <p>Total balance not available</p>
             </section>
         )
     }
@@ -30,7 +30,7 @@ const BalanceOverview = () => {
     const formattedNumber = formatCurrency(totalBalance, 'pl-PL', 'PLN');
 
     return (
-        <section className="home__balance" aria-live="polite">
+        <section className={styles.balance} aria-live="polite">
             <div className={styles.amount}>{formattedNumber}</div>
             <p className={styles.text}>Total balance</p>
         </section>

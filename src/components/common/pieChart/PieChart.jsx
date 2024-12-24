@@ -1,10 +1,8 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
-
-
+import PropTypes from 'prop-types';
 
 
 const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadius=60, colors={} , showLabel=false, legendType='line' }) => {
-
 
     // Проверяем, есть ли данные
     const hasData = data && data.length > 0;
@@ -62,7 +60,8 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
                 {chartData.map((entry, index) => {
                     const color = hasData? colors[entry.name] || "#cccccc" : "d3d3d3";
                     return <Cell key={`cell-${index}`} fill={color}/>
-                })}    
+                })}   
+
             </Pie>
             {hasData ? (
                 <>
@@ -89,5 +88,15 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
     );
 };
 
+
+CustomPieChart.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    innerRadius: PropTypes.string,
+    colors: PropTypes.object,
+    showLabel: PropTypes.bool,
+    legendType: PropTypes.string,
+}
 
 export default CustomPieChart;
