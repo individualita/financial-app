@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import PropTypes from 'prop-types';
 
 //Import local components for displaying budget diagram and expense categories
 import Heading from "../../../../components/common/heading/Heading";
@@ -6,9 +7,11 @@ import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
 import CategoryList from "../categoryList/CategoryList";
 
 //Import utility functions for calculations
-import {sumAmountByType} from "../../../../utils/sumAmountByType";
-import {groupExpensesByCategory} from "../../../../utils/groupExpensesByCategory";
-import {calculatePercetageByCategory} from "../../../../utils/calculatePercentageByCategory";
+import { sumAmountByType } from "../../../../utils/sumAmountByType";
+import { groupExpensesByCategory } from "../../../../utils/groupExpensesByCategory";
+import { calculatePercetageByCategory } from "../../../../utils/calculatePercentageByCategory";
+
+import styles from './monthlySummary.module.scss';
 
 
 const MonthlySummary = ({data, dateLabel}) => {
@@ -16,7 +19,7 @@ const MonthlySummary = ({data, dateLabel}) => {
     //Проверка
     if (!data || !Array.isArray(data) || data.length === 0) {
         return (
-            <section className="home__summary">
+            <section className={styles.summary}>
                 <p>No transactions available for this month.</p>
             </section>
         )
@@ -44,7 +47,7 @@ const MonthlySummary = ({data, dateLabel}) => {
 
 
     return (
-        <section className="home__summary">
+        <section className={styles.summary}>
             <BudgetDiagram 
                 data={dataForChart} 
                 totalExpense={totalExpense} 
@@ -52,7 +55,7 @@ const MonthlySummary = ({data, dateLabel}) => {
                 dateLabel={dateLabel} 
             />
             
-            <div className="home__category">
+            <div className={styles.category}>
                 <Heading level={3} className="font-medium">Main expenses</Heading>
                 <CategoryList data={categoriesWithPercentage} />
             </div>            
@@ -60,5 +63,10 @@ const MonthlySummary = ({data, dateLabel}) => {
     )
 }
 
+
+MonthlySummary.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired, 
+    dateLabel: PropTypes.string.isRequired
+}
 
 export default MonthlySummary;

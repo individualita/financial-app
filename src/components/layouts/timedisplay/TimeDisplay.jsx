@@ -3,17 +3,18 @@ import './timeDisplay.scss';
 
 
 const TimeDisplay = () => {
-  const [now, setNow] = useState(new Date());
+    const [now, setNow] = useState(new Date());
 
-  useEffect(() => {
+     useEffect(() => {
 
-    const interval = setInterval(() => {
-      setNow(new Date());
+        const interval = setInterval(() => {
+        setNow(new Date());
+
     }, 1000);
 
     //cleaning
     return () => {
-      clearInterval(interval); 
+        clearInterval(interval); 
     }
 
   },[]);

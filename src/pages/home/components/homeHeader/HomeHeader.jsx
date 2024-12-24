@@ -17,11 +17,11 @@ const HomeHeader = ({toggleAllBudgetsView, isAllBudgetsVisible}) => {
         </div>
     )
 }
-/*
+
 
 HomeHeader.propTypes = {
-    toggleAllBudgetsView: PropTypes.func.isRequired, // toggleAllBudgetsView - обязательная функция
-    isAllBudgetsVisible: PropTypes.bool.isRequired, // isAllBudgetsVisible - обязательное булевое значение
-};*/
+    toggleAllBudgetsView: PropTypes.func.isRequired, 
+    isAllBudgetsVisible: PropTypes.bool.isRequired, 
+};
 
 export default HomeHeader;

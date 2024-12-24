@@ -11,7 +11,7 @@ import TransactionItem from "../transactionItem/TransactionsItem";
 //function
 import { deleteTransaction } from '../../../../slices/transactionsSlice';
 //Utility for sorting transactions by date
-import {sortTransactionsByDate} from "../../../../utils/sortTransactionsByDate";
+import { sortTransactionsByDate } from "../../../../utils/sortTransactionsByDate";
 
 import styles from "./recentTransactions.module.scss";
 

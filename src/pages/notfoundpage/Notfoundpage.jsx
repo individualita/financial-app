@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 
 import dogImg from './dog.png';
 
-import styles from './notfoundpage.module.scss';
+import styles from './notFoundPage.module.scss';
 
-const Notfoundpage = () => {
+const NotFoundPage = () => {
     return (
         <section className={styles.error}>
             <div className={styles.type}>404</div>
@@ -15,4 +15,4 @@ const Notfoundpage = () => {
     )
 }
 
-export default Notfoundpage;
+export default NotFoundPage;

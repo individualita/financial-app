@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //Import global resources (icons)
@@ -18,7 +18,7 @@ import styles from './menu.module.scss';
 
 const Menu = ({handleOpenModal, currentSection}) => {
 
-    const colors =  {
+    const iconColors =  {
         active: 'var(--color-primary-light)',
         inactive: '#9ca2ad'
     }
@@ -27,16 +27,28 @@ const Menu = ({handleOpenModal, currentSection}) => {
         <nav className={styles.menu}>
 
             <div className={styles.column}>
-
-                <Link to="home" className={styles.link} aria-label="Go to the home">
-                    <HomeIcon fill={currentSection === 'home'? colors.active: colors.inactive}/>
+                <NavLink
+                    to='/home'
+                    className={({ isActive }) =>
+                        isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+                    }
+                    aria-label='Go to the home'
+                >
+                    <HomeIcon fill={currentSection === 'home'? iconColors.active: iconColors.inactive}/>
                     Home
-                </Link>
-
-                <Link to="currency" className={styles.link} aria-label="Go to the currency">
-                    <CurrencyIcon fill={currentSection === 'currency'? colors.active: colors.inactive}/>
+                </NavLink>
+                
+                <NavLink 
+                    to='/currency'
+                    className={({ isActive }) =>
+                        isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+                    }
+                    aria-label='Go to the currency'
+                >
+                    <CurrencyIcon fill={currentSection === 'currency'? iconColors.active: iconColors.inactive}/>
                     Currency
-                </Link>
+                </NavLink>
+
                 
             </div>
             <div className={styles.column}>
@@ -44,15 +56,29 @@ const Menu = ({handleOpenModal, currentSection}) => {
             </div>
 
             <div className={styles.column}>
-                <Link to="plans" className={styles.link} aria-label="Go to the plans">
-                        <PlansIcon fill={currentSection === 'plans' ? colors.active: colors.inactive}/>
-                        Plans 
-                </Link>
+                <NavLink
+                    to='/plans'
+                    className={({ isActive }) =>
+                        isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+                    }
+                    aria-label='Go to the plans'
+                >
+                    <PlansIcon fill={currentSection === 'plans' ? iconColors.active: iconColors.inactive}/>
+                    Plans
+                </NavLink>
 
-                <Link to="more" className={styles.link} aria-label="Go to the more">
-                        <MenuIcon fill={currentSection === 'more' || currentSection === 'contact' || currentSection === 'about' ? colors.active: colors.inactive}/>
-                        More 
-                </Link>
+                <NavLink
+                    to='/more'
+                    className={({ isActive }) =>
+                        isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+                    }
+                    aria-label='Go to the more'
+
+                >
+                    <MenuIcon fill={currentSection === 'more' || currentSection === 'contact' || currentSection === 'about' ? iconColors.active: iconColors.inactive}/>
+                    More 
+                </NavLink>
+
             </div>
         </nav>
     )

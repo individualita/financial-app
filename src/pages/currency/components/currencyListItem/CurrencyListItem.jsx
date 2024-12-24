@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 //data
-import {flagIconsData} from '../../../../data/flagIconsData';
+import { flagIconsData } from '../../../../data/flagIconsData';
 
 import styles from './currencyListItem.module.scss';
 

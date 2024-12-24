@@ -17,9 +17,8 @@ const Layout = () => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const location = useLocation();
-    const currentPath = location.pathname;
-    const currentSection = currentPath.split('/').pop() || 'home';
+    const {pathname} = useLocation();
+    const currentSection = pathname.split('/').pop() || 'home';
 
     // Сопоставление путей с названиями разделов
     const currentSectionName = SECTION_NAMES[currentSection] || 'Home';

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { createPortal } from 'react-dom';
 
 import styles from './modal.module.scss';
@@ -6,7 +8,7 @@ import styles from './modal.module.scss';
 const Modal = ({ onClose, title, children, id} ) => {
 
     return createPortal (
-        <div className={styles.modal} id={id}>
+        <div className={styles.modal} id={id} role="dialog" aria-labelledby="modal-title" aria-modal="true">
             <div className={styles.wrapper}>
     
                 <div className={styles.content}>
@@ -27,7 +29,7 @@ const Modal = ({ onClose, title, children, id} ) => {
                         </button>
                     </div>
             
-                    <div className="modal__body">
+                    <div className={styles.modalBody}>
                         {children}
                     </div>
                 </div>
@@ -35,6 +37,13 @@ const Modal = ({ onClose, title, children, id} ) => {
             </div>
         </div>, document.getElementById('modal-root')
     )
+}
+
+Modal.propTypes = {
+    onClose: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    children: PropTypes.node,
+    id: PropTypes.string,
 }
 
 export default Modal;

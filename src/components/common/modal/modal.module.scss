@@ -13,6 +13,9 @@
     background: white !important; // ensure white background for safari browser
 }
 
+.modalBody {
+}
+
 .header {
     @apply flex items-center justify-between   border-b rounded-t;
 }

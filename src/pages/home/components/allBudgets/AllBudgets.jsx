@@ -76,7 +76,7 @@ const AllBudgets = ({data}) => {
     
 
     return (
-        <div className="home__summary-list">
+        <div className={styles.list}>
             <button
                 className={styles.downloadBtn}
                 onClick={generatePDF}

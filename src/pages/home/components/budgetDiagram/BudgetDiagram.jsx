@@ -10,7 +10,7 @@ const BudgetDiagram = ({data, totalIncome, totalExpense, dateLabel}) => {
 
     return (
         <div className={styles.diagram}>
-            <header className="home__diagram-header">
+            <header className={styles.header}>
                 <div className={styles.title}>Budget for the month</div>
                 <div className={styles.dateLabel}>{dateLabel}</div>
             </header>
