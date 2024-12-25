@@ -1,10 +1,10 @@
-export const  routePaths = {
-    homePath: 'home',        
-    currencyPath: 'currency', 
-    plansPath: 'plans',       
-    morePath: 'more/*',  
-    aboutPath: 'about',
-    contactPath: 'contact'
+export const  ROUTE_PATHS = {
+    HOME: 'home',        
+    CURRENCY: 'currency', 
+    PLANS: 'plans',       
+    MORE: 'more/*',  
+    ABOUT: 'about',
+    CONTACT: 'contact'
 }
 
 

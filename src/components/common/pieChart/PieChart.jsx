@@ -1,5 +1,4 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
-import PropTypes from 'prop-types';
 
 
 const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadius=60, colors={} , showLabel=false, legendType='line' }) => {
@@ -88,15 +87,5 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
     );
 };
 
-
-CustomPieChart.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
-    width: PropTypes.string,
-    height: PropTypes.string,
-    innerRadius: PropTypes.string,
-    colors: PropTypes.object,
-    showLabel: PropTypes.bool,
-    legendType: PropTypes.string,
-}
 
 export default CustomPieChart;

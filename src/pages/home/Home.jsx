@@ -12,7 +12,6 @@ import AllBudgets from './components/allBudgets/AllBudgets';
 import { groupTransactionsByMonth } from './../../utils/groupTransactionsByMonth';
 import { getDateDetails } from '../../utils/getDateDetails';
 
-import './home.scss';
 
 
 const Home = () => {

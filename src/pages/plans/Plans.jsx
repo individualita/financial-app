@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 //import global resources
@@ -21,9 +20,6 @@ const Plans = () => {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-       localStorage.setItem('plans', JSON.stringify(plans));
-    }, [plans]);
 
     const renderPlansList = (array) => {
         return array.length === 0? (

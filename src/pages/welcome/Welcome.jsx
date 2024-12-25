@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import welcomeImg from '../../assets/images/welcome/girlwithphone.png'
 import Heading from '../../components/common/heading/Heading';
 
-import { routePaths } from '../../routes/routePaths';
+import { ROUTE_PATHS } from '../../routes/routePaths';
 
 import styles from './welcome.module.scss';
 
@@ -16,7 +16,7 @@ const Welcome = () => {
             <img className={styles.img} src={welcomeImg} role="img" alt="A girl sits on a coin and looks at her phone." />
             <Heading level={1} id="welcome-title">Take Control of Your Finances </Heading>
 
-            <Link className={styles.startLink}  to={routePaths.homePath} aria-label="Go to home">Click to start </Link>
+            <Link className={styles.startLink}  to={ROUTE_PATHS.HOME} aria-label="Go to home">Click to start </Link>
             
             
             <footer className={styles.footer} role="contentinfo">

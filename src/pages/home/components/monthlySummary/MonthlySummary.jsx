@@ -65,7 +65,7 @@ const MonthlySummary = ({data, dateLabel}) => {
 
 
 MonthlySummary.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object).isRequired, 
+    data: PropTypes.arrayOf(PropTypes.object), 
     dateLabel: PropTypes.string.isRequired
 }
 
