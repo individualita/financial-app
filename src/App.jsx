@@ -20,7 +20,7 @@ import { ROUTE_PATHS } from './routes/routePaths';
 const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));*/
 const AboutLazy = lazy(() => import('./pages/more/components/about/About'));
 const ContactLazy = lazy(() => import('./pages/more/components/contact/Contact'));
-
+const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));
 //styles
 import './app.scss';
 
