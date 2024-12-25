@@ -3,25 +3,24 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
 const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadius=60, colors={} , showLabel=false, legendType='line' }) => {
 
-    // Проверяем, есть ли данные
     const hasData = data && data.length > 0;
 
-    // Если данных нет, создаем данные для серого круга
+    // Если данных нет, создаем данные для серого круга. If there is no data, create data for the gray circle.
     const chartData = hasData? data: [{name: "No Data", value: 1}];
 
 
     const renderCustomizedLabel = (props) => {
-        if (!hasData) return null; // Не отображаем лейблы, если данных нет
+        if (!hasData) return null; // Не отображаем лейблы, если данных нет. Do not display labels if there is no data.
     
         const { cx, cy, midAngle, innerRadius, outerRadius, payload } = props;
         const RADIAN = Math.PI / 180;
     
-        // Расчет позиции лейбла
-        const radius = innerRadius + (outerRadius - innerRadius) * 1.5; // Регулируйте коэффициент для изменения расстояния от круга
+        // Расчет позиции лейбла . Label position. 
+        const radius = innerRadius + (outerRadius - innerRadius) * 1.5; // Регулирует коэффициент для изменения расстояния от круга Adjusts the coefficient that changes the distance from the circle
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
     
-        // Данные для лейбла
+        // Данные для лейбла. Data for label
         const name = payload.name;
         const percentage = payload.percentage;
     
