@@ -11,14 +11,19 @@ import Plans from './pages/plans/Plans';
 import More from './pages/more/More';
 import MoreMenu from './pages/more/components/moreMenu/MoreMenu';
 import Spinner from './components/common/spinner/Spinner';
+import NotFoundPage from './pages/notfoundpage/NotFoundPage';
+import About from './pages/more/components/about/About';
+import Conctact from './pages/more/components/contact/Contact';
 
 //routes
 import { ROUTE_PATHS } from './routes/routePaths';
 
 // Lazy-loaded components
+/*
 const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));
 const AboutLazy = lazy(() => import('./pages/more/components/about/About'));
 const ContactLazy = lazy(() => import('./pages/more/components/contact/Contact'));
+*/
 
 //styles
 import './app.scss';
@@ -43,15 +48,15 @@ const App = () => {
                                 <Route path={ROUTE_PATHS.PLANS} element={<Plans />}/>
                                 <Route path={ROUTE_PATHS.MORE} element={<More />} >
                                     <Route path="" element={<MoreMenu />}/>
-                                    <Route path={ROUTE_PATHS.ABOUT} element={<AboutLazy />}/>
-                                    <Route path={ROUTE_PATHS.CONTACT} element={<ContactLazy />}/>
-                                    <Route path="*" element={<Page404Lazy />} />
+                                    <Route path={ROUTE_PATHS.ABOUT} element={<About />}/>
+                                    <Route path={ROUTE_PATHS.CONTACT} element={<Conctact />}/>
+                                    <Route path="*" element={<NotFoundPage />} />
                                 </Route >
 
-                                <Route path="*" element={<Page404Lazy />} />
+                                <Route path="*" element={<NotFoundPage />} />
 
                             </Route>
-                            <Route path="*" element={<Page404Lazy />}/>
+                            <Route path="*" element={<NotFoundPage />}/>
                         </Routes>
                     </Suspense>
                 </Container> 
