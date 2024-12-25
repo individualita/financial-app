@@ -16,7 +16,7 @@ import Spinner from './components/common/spinner/Spinner';
 import { ROUTE_PATHS } from './routes/routePaths';
 
 // Lazy-loaded components
-const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));
+const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage.jsx'));
 const AboutLazy = lazy(() => import('./pages/more/components/about/About'));
 const ContactLazy = lazy(() => import('./pages/more/components/contact/Contact'));
 
