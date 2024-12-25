@@ -16,11 +16,11 @@ import Spinner from './components/common/spinner/Spinner';
 import { ROUTE_PATHS } from './routes/routePaths';
 
 // Lazy-loaded components
-/*
-const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));*/
+
 const AboutLazy = lazy(() => import('./pages/more/components/about/About'));
 const ContactLazy = lazy(() => import('./pages/more/components/contact/Contact'));
 const Page404Lazy = lazy(() => import('./pages/notfoundpage/NotFoundPage'));
+
 //styles
 import './app.scss';
 
@@ -46,13 +46,13 @@ const App = () => {
                                     <Route path="" element={<MoreMenu />}/>
                                     <Route path={ROUTE_PATHS.ABOUT} element={<AboutLazy />}/>
                                     <Route path={ROUTE_PATHS.CONTACT} element={<ContactLazy />}/>
-                                    {/*<Route path="*" element={<Page404Lazy />}/>*/}
+                                    {<Route path="*" element={<Page404Lazy />}/>}
                                 </Route >
 
-                                {/*<Route path="*" element={<Page404Lazy />}/>*/}
+                                {<Route path="*" element={<Page404Lazy />}/>}
 
                             </Route>
-                            {/*<Route path="*" element={<Page404Lazy />}/>*/}
+                            {<Route path="*" element={<Page404Lazy />}/>}
                         </Routes>
                     </Suspense>
                 </Container> 
