@@ -15,7 +15,7 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
         const { cx, cy, midAngle, innerRadius, outerRadius, payload } = props;
         const RADIAN = Math.PI / 180;
     
-        // Расчет позиции лейбла . Label position. 
+        // Расчет позиции лейбла . Label position.
         const radius = innerRadius + (outerRadius - innerRadius) * 1.5; // Регулирует коэффициент для изменения расстояния от круга Adjusts the coefficient that changes the distance from the circle
         const x = cx + radius * Math.cos(-midAngle * RADIAN);
         const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -47,7 +47,7 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
                 dataKey={"value"}
                 nameKey={"name"}
                 cx="50%"
-                cy="50%"
+                cy="70%"
                 labelLine={false}
                 innerRadius={innerRadius}
                 outerRadius={outerRadius}
@@ -63,11 +63,11 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
             </Pie>
             {hasData ? (
                 <>
-                    <Tooltip contentStyle={{fontSize: '12px'}} formatter={(value, name, props) => {
+                    <Tooltip contentStyle={{fontSize: '12px'}} wrapperStyle={{display: 'flex'}} formatter={(value, name, props) => {
                         const percentage = props.payload.percentage;
                         return [`${percentage}%`, name];
                     }}/> {/* Показываем информацию о сегменте при наведении */}
-                    <Legend wrapperStyle={{fontSize: '10px'}}/>
+                    <Legend align={"center"}  wrapperStyle={{fontSize: '10px', bottom: '-32px'}}/>
                 </>
             ) : (
                 <text
