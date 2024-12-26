@@ -12,6 +12,8 @@ This is a React-based financial application built with Vite. The app allows user
 - **Financial Plans**: Create, manage, and track financial plans.
 - **Download PDF Reports**: Download monthly reports of your financial data as PDF files.
 - **Local Storage**: Save and persist data even after page reloads.
+- **Global State Management**: State for transactions and plans is managed using **Redux Toolkit**.
+- **Lazy Loading**: Some components are lazily loaded to improve performance.
 
 ## Tech Stack
 
@@ -19,6 +21,7 @@ This is a React-based financial application built with Vite. The app allows user
 - **Vite**: A fast build tool and development server for modern web projects.
 - **Tailwind CSS**: A utility-first CSS framework for styling the application.
 - **React Router**: For navigating between different sections of the application.
+- **Redux Toolkit**: Centralized state management for transactions and plans.
 - **jsPDF** & **jspdf-autotable**: For generating and downloading PDF reports.
 - **Recharts**: A chart library for visualizing financial data.
 
@@ -65,6 +68,7 @@ By following these steps, you will be able to see the application running locall
 - `/src/assets`: Static assets like images and icons.
 - `/src/utils`: Utility functions like data formatting.
 - `/src/styles`: Global and component-specific styles built with Tailwind CSS.
+- `/src/store`: Contains the Redux Toolkit slices for managing global state (e.g., transactions and plans).
 
 ## Contributing
 
