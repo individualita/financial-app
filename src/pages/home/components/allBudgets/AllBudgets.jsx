@@ -40,8 +40,12 @@ const AllBudgets = ({data}) => {
         const totalIncome = sumAmountByType(data, 'income' );
         const totalExpense = sumAmountByType(data, 'expense');
     
-
-        return {period, totalExpense: Math.abs(totalExpense), totalIncome, remainder: totalIncome - Math.abs(totalExpense)};
+        return {
+            period, 
+            totalExpense: Math.abs(totalExpense).toFixed(2), 
+            totalIncome: totalIncome.toFixed(2), 
+            remainder: (totalIncome - Math.abs(totalExpense)).toFixed(2)
+        };
     });
 
     // Function to generate PDF report with jsPDF
