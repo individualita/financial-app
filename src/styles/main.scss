@@ -1,9 +1,9 @@
 
-@import './reset';
-@import './vars';
-@import './mixins';
-@import './typography';
-@import './base';
+@use './reset';
+@use './vars';
+@use './mixins';
+@use './typography';
+@use './base';
 
 // Импорт Tailwind CSS в конце
 @tailwind base;
