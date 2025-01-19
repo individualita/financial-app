@@ -14,6 +14,8 @@ This is a React-based financial application built with Vite. The app allows user
 - **Local Storage**: Save and persist data even after page reloads.
 - **Global State Management**: State for transactions and plans is managed using **Redux Toolkit**.
 - **Lazy Loading**: Some components are lazily loaded to improve performance.
+- **Custom Categories**: Users can create their own categories with a custom icon and random color. These categories are stored in local storage for persistence.
+
 
 ## Tech Stack
 
@@ -60,6 +62,8 @@ By following these steps, you will be able to see the application running locall
 2. **Viewing Financial Plans**: Navigate to the financial plans section to add or view your plans.
 3. **Charts**: View charts representing your income, expenses, and financial balance.
 4. **Download PDF**: Click the "Download PDF" button to download a report of your transactions for a selected month.
+5. **Custom Categories**: Create your own categories with an icon and random color. These categories will be saved to local storage so you can access them later.
+
 
 ## Project Structure
 
