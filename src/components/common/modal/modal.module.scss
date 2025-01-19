@@ -2,6 +2,7 @@
 .modal {
     @apply  fixed top-0 right-0 left-0 z-50 flex flex-col justify-center items-center w-full h-full;
     backdrop-filter: blur(2px);
+    overflow-y:scroll;
 }
 
 .wrapper {

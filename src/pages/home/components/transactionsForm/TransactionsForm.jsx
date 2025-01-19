@@ -1,19 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect, useRef, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid'; //id library
 import PropTypes from 'prop-types';
 
-
-import { ICONS } from '../../../../constants/icons';
-
+//functions 
 import { addTransaction } from '../../../../slices/transactionsSlice';
 
+//components 
+import AddCategoryPanel from '../addCategoryPanel/AddCategoryPanel';
+import FormErrorMessage from '../../../../components/common/formErrorMessage/FormErrorMessage';
 
 import styles from './transactionsForm.module.scss';
 
 const TransactionsForm = ({handleCloseModal}) => {
 
-    
     const [amount, setAmount] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [amountType, setAmountType] = useState('expense');
@@ -21,9 +21,14 @@ const TransactionsForm = ({handleCloseModal}) => {
     const [description, setDescription] = useState('');
     const [errors, setErrors] = useState({});
 
-    const inputRef = useRef(null);
+    //category panel
+    const [isAddCategoryPanelOpen, setAddCategoryPanelOpen] = useState(false);
+    const [categoryMessage, setCategoryMessage] = useState('');
 
+    const categories = useSelector(state => state.categoriesReducer.categories);
     const dispatch = useDispatch();
+
+    const inputRef = useRef(null);
 
     
     useEffect(() => {
@@ -46,25 +51,39 @@ const TransactionsForm = ({handleCloseModal}) => {
 
     }, [handleCloseModal]);
 
+    // Hide categoryMessage after 2s
+    useEffect(() => {
+
+        if(!categoryMessage) return
+
+        const timer = setTimeout(() => {
+            setCategoryMessage('');
+        }, 2000);
+
+        return () => clearTimeout(timer);
+
+    }, [categoryMessage]);
+
+
 
     // Icons for categories
     const getCategoryIcon = (category) => {
-        return ICONS[category] || '...';
+        return categories[category] || '...';
     };
 
 
      // Validate all fields
     const validateForm = () => {
         let errors = {};
-        if (!amount || amount <= 0 || amount.startsWith(0)) errors.amount = "Amount must be greater than zero.";
-        if (!selectedCategory) errors.selectedCategory = "Category must be selected.";
-        if (!date) errors.date = "Date is required.";
-        if (!description.trim()) errors.description = "Description cannot be empty.";
+        if (!amount || amount <= 0 || amount.startsWith(0)) errors.amount = 'Amount must be greater than zero.';
+        if (!selectedCategory) errors.selectedCategory = 'Category must be selected.';
+        if (!date) errors.date = 'Date is required.';
+        if (!description.trim()) errors.description = 'Description cannot be empty.';
 
         return errors;
     }
 
-    const handleSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
 
         // Call the validateForm function to check the form data for any validation errors
@@ -77,7 +96,6 @@ const TransactionsForm = ({handleCloseModal}) => {
             return;
         } 
 
-                                   
 
         dispatch(addTransaction(
             {
@@ -110,98 +128,127 @@ const TransactionsForm = ({handleCloseModal}) => {
 
 
 
-
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleFormSubmit} className={styles.form}>
             {/* Amount input */}
             <div className={`${styles.formGroup} ${styles.amount}`}>
                 <div className={styles.display}> {amount} <span>zł</span> </div>
-                {errors.amount? <div className={styles.error}>{errors.amount}</div> : null}
+
+                <FormErrorMessage message={errors.amount}/>
         
-                <input 
+                <input
+                    id='amount' 
                     onChange={(e) => setAmount(e.target.value)} 
                     value={amount}
-                    className={`${styles.input} ${styles.amount} ${errors.amount ? styles.inputError : ''}`}
-                    type="number" 
-                    name="amount" 
-                    placeholder="Amount"
+                    className={`input ${styles.amount} ${errors.amount ? 'input-error' : ''}`}
+                    type='number'
+                    name='amount'
+                    placeholder='Amount'
                     ref={inputRef}
                 />
                 
             </div>
             
             {/* Category selection */}
-            <div className={styles.formGroup}> 
+            <div className={`${styles.formGroup} flex-between`}> 
         
-                <select 
+                <select
+                    id='category' 
                     value={selectedCategory} 
                     onChange={e => setSelectedCategory(e.target.value)} 
-                    className={`${styles.select} ${errors.selectedCategory? styles.inputError : ''}`}
-                    name="category" 
-                    id="category" 
-                    aria-placeholder="Category"
+                    className={`select ${!isAddCategoryPanelOpen && 'min-w-[85%]'} ${errors.selectedCategory ? 'input-error': ''}`}
+                    name='category'
+                    aria-placeholder='Category'
                 >
-                    <option value="">Select Category</option>
-                    {renderCategoryOptions(ICONS)}
+                    <option value=''>Select Category </option>
+                    {renderCategoryOptions(categories)}
+                    <option value='Other'> ... Other </option>
+
                 </select>
-                {errors.selectedCategory? <div className={styles.error}>{errors.selectedCategory}</div> : null}
-        
+
+                {!isAddCategoryPanelOpen && (
+                    <button 
+                        type='button' 
+                        onClick={() => setAddCategoryPanelOpen(true)} 
+                        className={styles.addButton}
+                    >
+                        +
+                    </button> 
+                )}
+
             </div>
-        
-        
+            <FormErrorMessage message={errors.selectedCategory}/>
+
+            {categoryMessage && ( 
+                <p className={styles.helperText}>
+                    The new category <b>{categoryMessage}</b> has been added {' '} 
+                    <span className='message-success'>successfully</span>
+                </p>
+            )}
+
+
+            {/* open panel*/}
+            {isAddCategoryPanelOpen && (
+                <AddCategoryPanel onClosePanel={setAddCategoryPanelOpen} 
+                onSuccessMessage={setCategoryMessage}
+            />
+            )}
             
             <div className={`${styles.formGroup} ${styles.type}`}> 
         
                 <button
                     onClick={() =>setAmountType('expense')}
-                    type="button" 
+                    type='button' 
                     className={`${styles.button} ${amountType === 'expense' ? styles.buttonExpense : ''}`}
-                    aria-label="Mark as expense" > 
+                    aria-label='Mark as expense' 
+                > 
                     ↙ Expense 
-                
                 </button>
         
                 <button 
                     onClick={() => setAmountType('income')}
-                    type="button" 
-                    className={`${styles.button} ${amountType === 'income' ? styles.buttonIncome : ''}`}
-                    aria-label="Mark as income" > 
+                    type='button' 
+                    className={`${styles.button} ${amountType === 'income' ? styles.buttonIncome : '' }`}
+                    aria-label='Mark as income' 
+                > 
                     ↗ Income 
                 </button>
+
             </div>
         
             {/* Date input */}
             <div className={styles.formGroup}>
-                {<input 
+                <input 
+                    id='date'
                     onChange={(e) => setDate(e.target.value)}
-                    className={`${styles.input} ${errors.date? styles.inputError : ''}`}
-                    type="date" 
-                    name="date" 
-                    id="date"
-                    placeholder="dd.mm.year"  
-                />}
-                {errors.date? <div className={styles.error}>{errors.date}</div> : null}
-        
+                    className={`input ${errors.date? 'input-error' : ''}`}
+                    type='date' 
+                    name='date' 
+                    placeholder='dd.mm.year'  
+                />
+                <FormErrorMessage message={errors.date}/>
             </div>
         
         
             {/* Description input */}
             <div className={styles.formGroup}>
-                <input 
+                <input
+                    id='descr' 
                     value={description} 
                     onChange={e => setDescription(e.target.value)} 
-                    className={`${styles.input} ${errors.description? styles.inputError : ''}`}
-                    type="text" 
-                    name="descr" 
-                    id="descr" 
+                    className={`input ${errors.description ? 'input-error': ''}`}
+                    type='text' 
+                    name='descr' 
                     placeholder='Description'
                 />
-                {errors.description? <div className={styles.error}>{errors.description}</div> : null}
+                <FormErrorMessage message={errors.description}/>
+
             </div>
         
             {/* Submit button */}
             <button className={styles.submitButton}
-                type="submit">
+                type='submit'
+            >
                 Add Transaction
             </button>
     

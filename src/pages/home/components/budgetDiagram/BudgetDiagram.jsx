@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import CustomPieChart from '../../../../components/common/pieChart/PieChart';
-
-import { CATEGORY_COLORS } from '../../../../constants/categoryColors';
 
 import styles from './budgetDiagram.module.scss';
 
 const BudgetDiagram = ({data, totalIncome, totalExpense, dateLabel}) => {
+
+    const {categoryColors} = useSelector(state => state.categoryColorsReducer);
 
     return (
         <div className={styles.diagram}>
@@ -15,7 +16,7 @@ const BudgetDiagram = ({data, totalIncome, totalExpense, dateLabel}) => {
                 <div className={styles.dateLabel}>{dateLabel}</div>
             </header>
 
-            <CustomPieChart data={data}  innerRadius={40} outerRadius={60} colors={CATEGORY_COLORS}  />
+            <CustomPieChart data={data}  innerRadius={40} outerRadius={60} colors={categoryColors}  />
 
             <footer className={styles.summary}>
                 <div className={styles.value}> income: <span className="income">{totalIncome.toFixed(2)}</span> </div>

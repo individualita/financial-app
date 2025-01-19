@@ -1,0 +1,23 @@
+.addCategoryButton {
+    @apply  text-white p-2 bg-gray-800 text-xs rounded-md block ml-auto my-3;
+    transition: 0.7 ease;
+    &:hover {
+        opacity: 0.9;
+    }
+}
+
+.iconInput {
+    @apply w-[40px] px-[10px] py-1 rounded-md bg-gray-100 ;
+}
+
+.wrapper {
+    @apply mt-3 border-t;
+}
+
+.helperText {
+    @apply text-[10px] text-center my-3;
+}
+
+.inputGroup {
+    @apply flex  justify-between;
+}

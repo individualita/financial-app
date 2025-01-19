@@ -8,7 +8,6 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
     // Если данных нет, создаем данные для серого круга. If there is no data, create data for the gray circle.
     const chartData = hasData? data: [{name: "No Data", value: 1}];
 
-
     const renderCustomizedLabel = (props) => {
         if (!hasData) return null; // Не отображаем лейблы, если данных нет. Do not display labels if there is no data.
     

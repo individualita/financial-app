@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid'; //id library
 import { useDispatch } from 'react-redux';
 
-import { getRandomColor } from '../../../../utils/getRandomColor';
+import { getRandomColorFromArray } from '../../../../utils/getRandomColorFromArray';
 import { BACKGROUND_COLORS } from '../../../../constants/backgroundColors';
 
 //function
@@ -34,7 +34,7 @@ const PlansAddForm = () => {
             return;
         }
 
-        const color = getRandomColor(BACKGROUND_COLORS);
+        const color = getRandomColorFromArray(BACKGROUND_COLORS);
 
         dispatch(addNewPlan({
             _id: uuidv4(),

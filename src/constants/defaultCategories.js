@@ -1,4 +1,4 @@
-export const ICONS = {
+export const DEFAULT_CATEGORIES = {
     Salary: '💲', 
     Rent: '🏠', 
     Groceries: '🛒', 
@@ -10,6 +10,5 @@ export const ICONS = {
     Travel: '🌍', 
     Gifts: '🎁',
     Bills: '📠',
-    Other: '...'
 };
 

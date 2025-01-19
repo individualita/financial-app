@@ -1,4 +1,4 @@
-export const CATEGORY_COLORS = {
+export const DEFAULT_CATEGORY_COLORS = {
     JunkFood: '#FF4500',     
     Restaurant: '#1E90FF',   
     Clothes: '#ff0ff3',      
