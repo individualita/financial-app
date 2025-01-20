@@ -1,19 +1,19 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // Global components
 import Heading from '../../../../components/common/heading/Heading'
-import ActionButton from "../../../../components/common/buttons/actionButton/ActionButton";
+import ActionButton from '../../../../components/common/buttons/actionButton/ActionButton';
 
 // Local component for displaying individual transactions
-import TransactionItem from "../transactionItem/TransactionsItem";
+import TransactionItem from '../transactionItem/TransactionsItem';
 
 //function
 import { deleteTransaction } from '../../../../slices/transactionsSlice';
 //Utility for sorting transactions by date
-import { sortTransactionsByDate } from "../../../../utils/sortTransactionsByDate";
+import { sortTransactionsByDate } from '../../../../utils/sortTransactionsByDate';
 
-import styles from "./recentTransactions.module.scss";
+import styles from './recentTransactions.module.scss';
 
 const RecentTransactions = () => {
   
@@ -53,11 +53,11 @@ const RecentTransactions = () => {
 
 
     return (
-        <section className={styles.transactions} aria-labelledby="recent-transactions-title">
+        <section className={styles.transactions} aria-labelledby='recent-transactions-title'>
             <header className={styles.header}>
-                <Heading level={3} className="font-medium" id="recent-transactions-title">Recent Transactions</Heading>
+                <Heading level={3} className='font-medium' id='recent-transactions-title'>Recent Transactions</Heading>
                 <ActionButton onClick={toggleShowAll} ariaExpanded={showAll}>
-                    {showAll ? "Show less" : "View all"}
+                    {showAll ? 'Show less' : 'View all'}
                 </ActionButton>
             </header>
 

@@ -30,7 +30,7 @@ const BalanceOverview = () => {
     const formattedNumber = formatCurrency(totalBalance, 'pl-PL', 'PLN');
 
     return (
-        <section className={styles.balance} aria-live="polite">
+        <section className={styles.balance} aria-live='polite'>
             <div className={styles.amount}>{formattedNumber}</div>
             <p className={styles.text}>Total balance</p>
         </section>

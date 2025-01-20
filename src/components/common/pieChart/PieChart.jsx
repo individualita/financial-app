@@ -6,7 +6,7 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
     const hasData = data && data.length > 0;
 
     // Если данных нет, создаем данные для серого круга. If there is no data, create data for the gray circle.
-    const chartData = hasData? data: [{name: "No Data", value: 1}];
+    const chartData = hasData? data: [{name: 'No Data', value: 1}];
 
     const renderCustomizedLabel = (props) => {
         if (!hasData) return null; // Не отображаем лейблы, если данных нет. Do not display labels if there is no data.
@@ -27,9 +27,9 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
             <text
                 x={x}
                 y={y}
-                fill="black"
-                textAnchor="middle"
-                dominantBaseline="central"
+                fill='black'
+                textAnchor='middle'
+                dominantBaseline='central'
                 style={{ fontSize: '10px', fontWeight: '500' }} // Настройка размера шрифта и стилей
             >
                 {`${name}: ${percentage}%`}
@@ -43,19 +43,19 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
         <PieChart width={width} height={height} >
             <Pie
                 data={chartData}
-                dataKey={"value"}
-                nameKey={"name"}
-                cx="50%"
-                cy="70%"
+                dataKey={'value'}
+                nameKey={'name'}
+                cx='50%'
+                cy='70%'
                 labelLine={false}
                 innerRadius={innerRadius}
                 outerRadius={outerRadius}
-                fill="#d3d3d3"
+                fill='#d3d3d3'
                 legendType={legendType}
                 label={customLabel}
             >
                 {chartData.map((entry, index) => {
-                    const color = hasData? colors[entry.name] || "#cccccc" : "d3d3d3";
+                    const color = hasData? colors[entry.name] || '#cccccc' : 'd3d3d3';
                     return <Cell key={`cell-${index}`} fill={color}/>
                 })}   
 
@@ -66,14 +66,14 @@ const CustomPieChart = ({data, width=150, height=200, innerRadius=40, outerRadiu
                         const percentage = props.payload.percentage;
                         return [`${percentage}%`, name];
                     }}/> {/* Показываем информацию о сегменте при наведении */}
-                    <Legend align={"center"}  wrapperStyle={{fontSize: '10px', bottom: '-32px'}}/>
+                    <Legend align={'center'}  wrapperStyle={{fontSize: '10px', bottom: '-32px'}}/>
                 </>
             ) : (
                 <text
-                    x="50%"
-                    y="50%"
-                    textAnchor="middle"
-                    dominantBaseline="central"
+                    x='50%'
+                    y='50%'
+                    textAnchor='middle'
+                    dominantBaseline='central'
                     style={{fontSize: '12px', fill:'#888'}}
                 >
                     No data Available.

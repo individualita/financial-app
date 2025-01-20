@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { useState } from "react";
+import { useState } from 'react';
 
-import CategoryItem from "../categoryItem/CategoryItem";
+import CategoryItem from '../categoryItem/CategoryItem';
 
 import styles from './categoryList.module.scss';
 

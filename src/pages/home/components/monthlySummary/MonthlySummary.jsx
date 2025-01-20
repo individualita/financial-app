@@ -1,15 +1,15 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
 //Import local components for displaying budget diagram and expense categories
-import Heading from "../../../../components/common/heading/Heading";
-import BudgetDiagram from "../budgetDiagram/BudgetDiagram";
-import CategoryList from "../categoryList/CategoryList";
+import Heading from '../../../../components/common/heading/Heading';
+import BudgetDiagram from '../budgetDiagram/BudgetDiagram';
+import CategoryList from '../categoryList/CategoryList';
 
 //Import utility functions for calculations
-import { sumAmountByType } from "../../../../utils/sumAmountByType";
-import { groupExpensesByCategory } from "../../../../utils/groupExpensesByCategory";
-import { calculatePercetageByCategory } from "../../../../utils/calculatePercentageByCategory";
+import { sumAmountByType } from '../../../../utils/sumAmountByType';
+import { groupExpensesByCategory } from '../../../../utils/groupExpensesByCategory';
+import { calculatePercetageByCategory } from '../../../../utils/calculatePercentageByCategory';
 
 import styles from './monthlySummary.module.scss';
 
@@ -56,7 +56,7 @@ const MonthlySummary = ({data, dateLabel}) => {
             />
             
             <div className={styles.category}>
-                <Heading level={3} className="font-medium">Main expenses</Heading>
+                <Heading level={3} className='font-medium'>Main expenses</Heading>
                 <CategoryList data={categoriesWithPercentage} />
             </div>            
         </section>

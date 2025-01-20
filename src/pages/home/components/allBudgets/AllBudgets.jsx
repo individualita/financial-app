@@ -1,18 +1,18 @@
 import PropTypes from 'prop-types';
 
 //Import jsPDF library
-import jsPDF from "jspdf";
+import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 
 //Import global components or resources
 import Download from '../../../../components/common/icons/Download';
 
 //Import utility functions
-import {sumAmountByType} from "../../../../utils/sumAmountByType";
+import {sumAmountByType} from '../../../../utils/sumAmountByType';
 import { getDateDetails } from '../../../../utils/getDateDetails';
 
 //Import local components
-import MonthlySummary from "../monthlySummary/MonthlySummary";
+import MonthlySummary from '../monthlySummary/MonthlySummary';
 
 import styles from './allBudgets.module.scss';
 
@@ -84,7 +84,7 @@ const AllBudgets = ({data}) => {
             <button
                 className={styles.downloadBtn}
                 onClick={generatePDF}
-                aria-label="Download PDF report"
+                aria-label='Download PDF report'
                 >
                     PDF Report
                     <Download fill={'#35323b'}/>

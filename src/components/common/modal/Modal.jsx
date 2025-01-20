@@ -8,7 +8,7 @@ import styles from './modal.module.scss';
 const Modal = ({ onClose, title, children, id} ) => {
 
     return createPortal (
-        <div className={styles.modal} id={id} role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div className={styles.modal} id={id} role='dialog' aria-labelledby='modal-title' aria-modal='true'>
             <div className={styles.wrapper}>
     
                 <div className={styles.content}>
@@ -22,8 +22,8 @@ const Modal = ({ onClose, title, children, id} ) => {
                         <button 
                             className={styles.closeModal}
                             onClick={onClose} 
-                            type="button"  
-                            aria-label="Close modal"
+                            type='button'  
+                            aria-label='Close modal'
                         >   
                             x
                         </button>

@@ -7,7 +7,7 @@ import TransactionsForm from '../transactionsForm/TransactionsForm';
 const TransactionModal = ({handleCloseModal}) => {
 
     return (
-        <Modal title="New transaction" id="modal" onClose={handleCloseModal}>
+        <Modal title='New transaction' id='modal' onClose={handleCloseModal}>
             <TransactionsForm handleCloseModal={handleCloseModal} />
         </Modal> 
     )

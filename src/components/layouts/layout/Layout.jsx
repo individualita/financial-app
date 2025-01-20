@@ -1,17 +1,17 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import { useState} from "react";
+import { useState} from 'react';
 
 //constants
 import { SECTION_NAMES } from '../../../constants/sectionNames';
 
 //Components
-import Heading from "../../common/heading/Heading";
-import TimeDisplay from "../timedisplay/TimeDisplay";
+import Heading from '../../common/heading/Heading';
+import TimeDisplay from '../timedisplay/TimeDisplay';
 import Menu from '../menu/Menu';
 import TransactionModal from '../../../pages/home/components/transactionModal/TransactionModal';
 
 //styles
-import "./layout.scss";
+import './layout.scss';
 
 const Layout = () => {
 
@@ -31,7 +31,7 @@ const Layout = () => {
     
 
     return (
-        <section className="layout">
+        <section className='layout'>
             <TimeDisplay />
             <Heading level={2}>{currentSectionName}</Heading>
             <Outlet />

@@ -21,8 +21,8 @@ const TimeDisplay = () => {
 
   return (
     <>
-        <time className="time">
-            {now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+        <time className='time'>
+            {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </time>
     </>
   )

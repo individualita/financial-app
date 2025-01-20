@@ -36,7 +36,7 @@ const About = () => {
 
             <h4 className={styles.title}>Contact:</h4>
             <p>
-                If you have any suggestions or questions, I am always here to help! Contact me through the Contact section or email me at <a className={styles.link} href="mailto:roman.warsaw@gmail.com">roman.warsaw@gmail.com</a>.
+                If you have any suggestions or questions, I am always here to help! Contact me through the Contact section or email me at <a className={styles.link} href='mailto:roman.warsaw@gmail.com'>roman.warsaw@gmail.com</a>.
             </p>
         </section>
 

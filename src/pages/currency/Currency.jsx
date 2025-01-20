@@ -86,7 +86,7 @@ const Currency = () => {
         <section className={styles.currency}>
             <div className={styles.header}>
 
-                <button onClick={() => dispatch(fetchCurrency())} className={styles.updateButton} aria-label="Update currency data" type="button">
+                <button onClick={() => dispatch(fetchCurrency())} className={styles.updateButton} aria-label='Update currency data' type='button'>
                     <UpdateIcon fill={currencyLoadingStatus === STATUSES.PENDING? 'gray' : 'black'} width={'18px'}/>
                 </button>
 
@@ -101,7 +101,7 @@ const Currency = () => {
             <div className={styles.update}>
                 <span>Last update:</span> 
                 <br />
-                {transformedCurrency ? transformedCurrency.date.slice(0,16).replace('T', ' ') : "Not updated yet"}
+                {transformedCurrency ? transformedCurrency.date.slice(0,16).replace('T', ' ') : 'Not updated yet'}
             </div>
         </section>
     )

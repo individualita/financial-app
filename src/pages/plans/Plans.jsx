@@ -24,7 +24,7 @@ const Plans = () => {
     const renderPlansList = (array) => {
         return array.length === 0? (
             <div className={styles.info}>Create your first plan:) 
-                <img className={styles.img}src={hiImg} alt="Green cactus says hello." />
+                <img className={styles.img}src={hiImg} alt='Green cactus says hello.' />
             </div> 
         ) : (
             array.map(({_id, ...props})=> {
@@ -34,7 +34,7 @@ const Plans = () => {
     }
 
     return (
-        <section className="plans" aria-labelledby="plans-title">
+        <section className='plans' aria-labelledby='plans-title'>
 
             <Heading level={3} className={`${styles.subtitle} text-black font-light`}>Keep track of your upcoming expenses and stay prepared for what’s ahead.</Heading>
 

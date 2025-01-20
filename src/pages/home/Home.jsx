@@ -39,7 +39,7 @@ const Home = () => {
     const {formattedKey, dateLabel} = currentDate; //formattedKey - 2024-12 , dateLabel - December 2024.
 
     return (
-        <section className="home">
+        <section className='home'>
             <HomeHeader toggleAllBudgetsView={toggleAllBudgetsView} isAllBudgetsVisible={isAllBudgetsVisible}/>
 
             {isAllBudgetsVisible ? (<AllBudgets data={sortedTransactionsByMonth} /> 

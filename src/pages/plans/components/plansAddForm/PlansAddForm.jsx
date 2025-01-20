@@ -62,12 +62,12 @@ const PlansAddForm = () => {
                 onChange={handleInputChange} 
                 value={planTitle} 
                 className={styles.input} 
-                type="text" 
-                name="title" 
-                id="title" 
-                placeholder="Title"
+                type='text' 
+                name='title' 
+                id='title' 
+                placeholder='Title'
                 required
-                aria-required="true"
+                aria-required='true'
             />
 
             <textarea 
@@ -77,20 +77,20 @@ const PlansAddForm = () => {
                 }}
                 value={planContent} 
                 className={styles.textarea} 
-                name="content" 
-                id="content" 
-                placeholder="Note down your plan..." 
+                name='content' 
+                id='content' 
+                placeholder='Note down your plan...' 
                 rows={4}
-                aria-required="true"
+                aria-required='true'
                 >
             </textarea>
 
             {hasError && (
-                <div className={styles.errorMessage} aria-live="polite">
+                <div className={styles.errorMessage} aria-live='polite'>
                     Please fill in both title and content.
                 </div>
             )}
-            <button type="submit" className={styles.submitButton}>Add plan</button>
+            <button type='submit' className={styles.submitButton}>Add plan</button>
         </form>
     )
 }
